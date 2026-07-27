@@ -1,0 +1,286 @@
+.message-context-menu-wrapper {
+  position: fixed;
+  z-index: 999999;
+  width: 260px;
+  max-height: calc(100vh - 20px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.08),
+    0 40px 80px -15px rgba(0, 0, 0, 0.15);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: submenuEntrance 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  pointer-events: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@keyframes submenuEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.menu-emoji-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+}
+
+.emojis-list {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.emoji-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  padding: 2px;
+  cursor: pointer;
+  transition: transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-btn:hover {
+  transform: scale(1.3);
+}
+
+.emoji-more-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  color: #64748b;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.emoji-more-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+
+.menu-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 4px 6px;
+}
+
+.menu-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.menu-actions-list::-webkit-scrollbar {
+  width: 3px;
+}
+.menu-actions-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.menu-actions-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+.dark-mode .menu-actions-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-action-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #334155;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 450;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.menu-action-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+}
+
+.menu-action-item .menu-icon {
+  color: #64748b;
+  transition: color 0.12s ease;
+}
+
+.menu-action-item:hover .menu-icon {
+  color: #000000;
+}
+
+.menu-action-item.delete {
+  color: #dc2626;
+}
+
+.menu-action-item.delete .menu-icon {
+  color: #dc2626;
+}
+
+.menu-action-item.delete:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.menu-action-item.delete:hover .menu-icon {
+  color: #b91c1c;
+}
+
+/* =============================================
+   DARK MODE OVERRIDES (Matches .chat-submenu)
+   ============================================= */
+.dark-mode .message-context-menu-wrapper {
+  background-color: #222222 !important;
+  border: none !important;
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.5),
+    0 40px 80px -15px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .emoji-more-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #a1a1aa;
+}
+
+.dark-mode .emoji-more-btn:hover {
+  background: #424242;
+  color: #ffffff;
+}
+
+.dark-mode .menu-divider {
+  background-color: #424242 !important;
+}
+
+.dark-mode .menu-action-item {
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .menu-action-item:hover {
+  background-color: #424242 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .menu-action-item .menu-icon {
+  color: #ffffff !important;
+}
+
+.dark-mode .menu-action-item:hover .menu-icon {
+  color: #ffffff !important;
+}
+
+.dark-mode .menu-action-item.delete {
+  color: #f87171 !important;
+}
+
+.dark-mode .menu-action-item.delete .menu-icon {
+  color: #f87171 !important;
+}
+
+.dark-mode .menu-action-item.delete:hover {
+  background-color: #7f1d1d !important;
+  color: #fca5a5 !important;
+}
+
+.dark-mode .menu-action-item.delete:hover .menu-icon {
+  color: #fca5a5 !important;
+}
+
+/* Full Emoji Picker styling overrides */
+.full-emoji-picker {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 8px);
+  width: 260px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.08),
+    0 40px 80px -15px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 10000;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  animation: submenuEntrance 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  box-sizing: border-box;
+}
+
+.full-emoji-picker .emoji-btn {
+  font-size: 1.4rem;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+
+.full-emoji-picker .emoji-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.2);
+}
+
+.full-emoji-picker::-webkit-scrollbar {
+  width: 4px;
+}
+.full-emoji-picker::-webkit-scrollbar-track {
+  background: transparent;
+}
+.full-emoji-picker::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+}
+
+.dark-mode .full-emoji-picker {
+  background-color: #222222 !important;
+  border: none !important;
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.5),
+    0 40px 80px -15px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .full-emoji-picker .emoji-btn:hover {
+  background-color: #424242 !important;
+}
+
+.dark-mode .full-emoji-picker::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}

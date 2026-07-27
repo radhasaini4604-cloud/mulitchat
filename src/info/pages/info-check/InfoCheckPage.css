@@ -1,0 +1,136 @@
+@keyframes infocheckFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.infocheck-page {
+  height: 100%;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.infocheck-header {
+  padding: 20px 40px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+  animation: infocheckFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.infocheck-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.infocheck-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.infocheck-brand-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Content */
+.infocheck-content {
+  flex: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  width: 100%;
+}
+
+.infocheck-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  opacity: 0;
+  animation: infocheckFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.infocheck-subtitle {
+  font-size: 1.05rem;
+  color: #888888;
+  margin: 0 0 40px 0;
+  font-weight: 400;
+  opacity: 0;
+  animation: infocheckFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.infocheck-body {
+  opacity: 0;
+  animation: infocheckFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.infocheck-body p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #333333;
+  margin: 0 0 20px 0;
+}
+
+.infocheck-body h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111111;
+  margin: 40px 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.infocheck-body ul {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+}
+
+.infocheck-body ul li {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #333333;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.infocheck-body ul li::marker {
+  color: #999999;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .infocheck-header {
+    padding: 16px 20px;
+  }
+
+  .infocheck-content {
+    padding: 40px 20px 60px;
+  }
+
+  .infocheck-title {
+    font-size: 1.6rem;
+  }
+
+  .infocheck-footer {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,177 @@
+/* SecurityCard Component Styles */
+.submodal-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submodal-toggle-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--groupchat-text);
+}
+
+.submodal-toggle-desc {
+  font-size: 12px;
+  color: var(--groupchat-text-muted);
+  margin-top: 2px;
+}
+
+/* Compact sleek toggle switch (36px x 20px) */
+.password-toggle-switch {
+  width: 36px;
+  height: 20px;
+  background: var(--groupchat-border, #ccc);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.password-toggle-switch.enabled {
+  background: #1f1f1f;
+}
+
+.dark-mode .password-toggle-switch.enabled {
+  background: #ffffff !important;
+}
+
+.password-toggle-handle {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .password-toggle-switch.enabled .password-toggle-handle {
+  background: #141414 !important;
+}
+
+.password-toggle-switch.enabled .password-toggle-handle {
+  transform: translateX(16px);
+}
+
+/* Unified Password Input Pill Card (Copy & Save inside) */
+.security-password-pill-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--groupchat-item-bg, #f1f5f9);
+  border-radius: 99px;
+  padding: 4px 6px 4px 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dark-mode .security-password-pill-card {
+  background: #1a1a1a;
+}
+
+.security-password-input {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--groupchat-text);
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  padding: 6px 0;
+}
+
+.security-pill-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Copy button with green checkmark tick feedback */
+.submodal-icon-copy-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--groupchat-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.submodal-icon-copy-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--groupchat-text);
+}
+
+.dark-mode .submodal-icon-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submodal-icon-copy-btn.copied {
+  background: transparent !important;
+  color: var(--groupchat-text) !important;
+}
+
+.submodal-icon-copy-btn.copied svg {
+  stroke: var(--groupchat-text) !important;
+  fill: none !important;
+}
+
+/* Save button inside the input pill card */
+.security-save-pill-btn {
+  background: var(--groupchat-text, #1f1f1f);
+  color: var(--groupchat-bg, #ffffff);
+  border: none;
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.dark-mode .security-save-pill-btn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.security-save-pill-btn:hover {
+  opacity: 0.9;
+}
+
+.security-save-pill-btn:active {
+  transform: scale(0.97);
+}
+
+/* Top-Center Toast Confirmation Banner */
+.top-center-copied-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 10000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: roomNavbarFadeIn 0.2s ease-out;
+}
+
+.dark-mode .top-center-copied-toast {
+  background: #ffffff;
+  color: #000000;
+}

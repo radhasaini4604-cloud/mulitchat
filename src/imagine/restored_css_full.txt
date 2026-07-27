@@ -1,0 +1,159 @@
+Created At: 2026-06-26T02:35:44Z
+Completed At: 2026-06-26T02:35:44Z
+File Path: `file:///Users/apple/Downloads/hoirzon/src/imagine/Imagine.css`
+Total Lines: 1598
+Total Bytes: 29834
+Showing lines 651 to 1450
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+651:   font-size: 1.2rem;
+652:   font-weight: 800;
+653:   margin: 0;
+654:   color: #0f172a;
+655: }
+656: 
+657: .workspace-title-section p {
+658:   font-size: 0.8rem;
+659:   color: #64748b;
+660:   margin: 4px 0 0 0;
+661: }
+662: 
+663: .workspace-back-btn {
+664:   background: #ffffff;
+665:   border: 1px solid #cbd5e1;
+666:   color: #0f172a;
+667:   padding: 8px 16px;
+668:   border-radius: 8px;
+669:   font-size: 0.85rem;
+670:   font-weight: 600;
+671:   cursor: pointer;
+672:   transition: all 0.2s ease;
+673: }
+674: 
+675: .workspace-back-btn:hover {
+676:   background: #0f172a;
+677:   color: #ffffff;
+678:   border-color: #0f172a;
+679: }
+680: 
+681: .imagine-workspace-content {
+682:   flex: 1;
+683:   overflow-y: auto;
+684:   padding: 32px 32px 140px 32px;
+685: }
+686: 
+687: /* 3-Column Workspace Grid */
+688: .workspace-grid {
+689:   display: grid;
+690:   grid-template-columns: repeat(3, 1fr);
+691:   gap: 24px;
+692:   max-width: 1200px;
+693:   margin: 0 auto;
+694: }
+695: 
+696: @media (max-width: 1024px) {
+697:   .workspace-grid {
+698:     grid-template-columns: repeat(2, 1fr);
+699:   }
+700: }
+701: 
+702: @media (max-width: 640px) {
+703:   .workspace-grid {
+704:     grid-template-columns: 1fr;
+705:   }
+706: }
+707: 
+708: /* Workspace Card */
+709: .workspace-card {
+710:   background: #ffffff;
+711:   border: 1px solid #e2e8f0;
+712:   border-radius: 16px;
+713:   overflow: hidden;
+714:   display: flex;
+715:   flex-direction: column;
+716:   transition: all 0.2s ease;
+717: }
+718: 
+719: .workspace-card:hover {
+720:   border-color: #94a3b8;
+721:   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+722
+<truncated 16102 bytes>
+t: auto;
+1375:   }
+1376: }
+1377: 
+1378: .preview-main-img {
+1379:   max-width: 100%;
+1380:   max-height: 100%;
+1381:   object-fit: contain;
+1382:   border-radius: 12px;
+1383:   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+1384: }
+1385: 
+1386: .preview-details-sidebar {
+1387:   flex: 0.8;
+1388:   padding: 40px 32px;
+1389:   display: flex;
+1390:   flex-direction: column;
+1391:   justify-content: space-between;
+1392:   border-left: 1px solid #f1f5f9;
+1393:   background: #ffffff;
+1394:   box-sizing: border-box;
+1395: }
+1396: 
+1397: @media (max-width: 768px) {
+1398:   .preview-details-sidebar {
+1399:     border-left: none;
+1400:     border-top: 1px solid #f1f5f9;
+1401:     padding: 24px;
+1402:     flex: none;
+1403:   }
+1404: }
+1405: 
+1406: .preview-prompt-section {
+1407:   display: flex;
+1408:   flex-direction: column;
+1409:   gap: 12px;
+1410:   margin-bottom: 24px;
+1411: }
+1412: 
+1413: .preview-section-title {
+1414:   display: flex;
+1415:   align-items: center;
+1416:   gap: 8px;
+1417:   font-size: 0.8rem;
+1418:   font-weight: 700;
+1419:   text-transform: uppercase;
+1420:   letter-spacing: 0.05em;
+1421:   color: #64748b;
+1422: }
+1423: 
+1424: .preview-section-title .section-icon {
+1425:   width: 16px;
+1426:   height: 16px;
+1427:   color: #475569;
+1428: }
+1429: 
+1430: .preview-prompt-text {
+1431:   font-size: 0.9rem;
+1432:   line-height: 1.5;
+1433:   color: #1e293b;
+1434:   margin: 0;
+1435:   font-weight: 500;
+1436:   max-height: 200px;
+1437:   overflow-y: auto;
+1438:   padding-right: 4px;
+1439:   text-align: left;
+1440: }
+1441: 
+1442: /* Custom scrollbar for preview prompt */
+1443: .preview-prompt-text::-webkit-scrollbar {
+1444:   width: 4px;
+1445: }
+1446: .preview-prompt-text::-webkit-scrollbar-track {
+1447:   background: transparent;
+1448: }
+1449: .preview-prompt-text::-webkit-scrollbar-thumb {
+1450:   background: rgba(0, 0, 0, 0.08);
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+

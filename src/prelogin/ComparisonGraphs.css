@@ -1,0 +1,114 @@
+/* Container matches comparison-section-container from ComparisonSection.css */
+.prelogin-container .comparison-section-container {
+  margin-top: 40px;
+  padding-top: 20px;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Row wrapper matches graphs-comparison-row from ComparisonSection.css */
+.prelogin-container .graphs-comparison-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* Card matches graph-comparison-card from ComparisonSection.css, with NO background card or border! */
+.prelogin-container .graph-comparison-card {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  padding: 16px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header matches card-header-clean from ComparisonSection.css */
+.prelogin-container .card-header-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+  align-items: center;
+}
+
+/* Title matches card-title-clean but in white */
+.prelogin-container .card-title-clean {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff !important;
+}
+
+/* Subtitle matches card-subtitle-sub but in gray */
+.prelogin-container .card-subtitle-sub {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem;
+  color: #a1a1aa !important;
+}
+
+/* SVG matches comparison-svg */
+.prelogin-container .comparison-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.prelogin-container .comparison-svg circle {
+  transition: r 0.15s ease;
+}
+
+.prelogin-container .comparison-svg circle:hover {
+  r: 4.5px;
+  cursor: pointer;
+}
+
+/* Title headings styled nicely with Sebenta serif font */
+.prelogin-container .body-section-title {
+  font-family: Sebenta, "Sebenta Fallback: Georgia", Georgia, serif !important;
+  font-size: 38px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.5px !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+}
+
+.prelogin-container .chart-subtitle-clean {
+  font-size: 16px;
+  color: #a1a1aa !important;
+  font-weight: 400;
+}
+
+.prelogin-container .performance-info-text {
+  color: #a1a1aa !important;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Wrapper section styling */
+.comparison-graphs-section {
+  width: 100%;
+  padding: 80px 8%;
+  background: #000000;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .prelogin-container .graphs-comparison-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .prelogin-container .body-section-title {
+    font-size: 28px !important;
+  }
+}

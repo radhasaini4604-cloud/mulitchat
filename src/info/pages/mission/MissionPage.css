@@ -1,0 +1,243 @@
+/* Mission Page (Nothric Charter) styles */
+
+.mission-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000000 !important;
+  color: #a1a1a6;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Wild", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-bg-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+.mission-page-wrapper .ui-overlay {
+  background: transparent !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 24px 24px 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.mission-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 140px 0 80px 0;
+  box-sizing: border-box;
+}
+
+/* Header Layout */
+.mission-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 64px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.mission-meta {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mission-title {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 4rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Premium Reveal Animations for Title */
+.hero-title-word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero-title-word {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  display: inline-block;
+  transform: translateY(105%);
+  animation: heroWordReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroWordReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.mission-intro-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 24px 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mission-intro-card p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #a1a1a6;
+  margin: 0 0 14px 0;
+}
+
+.mission-intro-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Principle Cards Grid */
+.mission-principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.mission-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 36px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #ffffff 0%, transparent 100%);
+  opacity: 0.5;
+}
+
+.mission-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.mission-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mission-card-header h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  padding-right: 16px;
+}
+
+.mission-card-num {
+  font-family: ui-monospace, SFMono-Regular, SF Pro Text, monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+.mission-card p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #a1a1a6;
+  margin: 0 0 16px 0;
+}
+
+.mission-card p:last-child {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .mission-header {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .mission-title {
+    text-align: center;
+    font-size: 3.2rem;
+  }
+
+  .mission-principles-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Override standard navbar styles when inside mission page to look premium on pure black */
+.mission-page-wrapper .landing-navbar {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.mission-page-wrapper .landing-brand {
+  color: #ffffff !important;
+}
+
+.mission-page-wrapper .landing-nav-link {
+  color: #a1a1a6 !important;
+}
+
+.mission-page-wrapper .landing-nav-link:hover,
+.mission-page-wrapper .landing-nav-link.active {
+  color: #ffffff !important;
+}
+
+.mission-page-wrapper .landing-try-btn {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.mission-page-wrapper .landing-login-btn {
+  color: #a1a1a6 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.mission-page-wrapper .landing-login-btn:hover {
+  color: #ffffff !important;
+}

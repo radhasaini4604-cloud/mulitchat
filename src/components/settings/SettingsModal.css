@@ -1,0 +1,504 @@
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.settings-modal-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 720px;
+  height: 600px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px var(--dropdown-border);
+  box-sizing: border-box;
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.settings-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--sidebar-border);
+  padding-bottom: 16px;
+}
+
+.settings-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.settings-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: var(--dropdown-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.settings-close-btn:hover {
+  background-color: var(--dropdown-hover-bg);
+  color: var(--sidebar-text-main);
+}
+
+.settings-close-btn .close-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.settings-modal-body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  min-height: 0;
+  height: 0;
+}
+
+.settings-sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-right: 0.5px solid var(--sidebar-border);
+  padding-right: 16px;
+  padding-bottom: 24px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dropdown-text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.2s, color 0.2s;
+  width: 100%;
+}
+
+.settings-nav-item:hover {
+  background-color: var(--dropdown-hover-bg);
+  color: var(--sidebar-text-main);
+}
+
+.settings-nav-item.active {
+  background-color: var(--dropdown-hover-bg);
+  color: var(--sidebar-text-main);
+  font-weight: 600;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.settings-content-pane {
+  flex: 1;
+  padding: 8px 24px 60px 16px;
+  overflow-y: auto;
+  min-height: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar completely */
+.settings-sidebar::-webkit-scrollbar,
+.settings-content-pane::-webkit-scrollbar {
+  display: none;
+}
+
+.settings-tab-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.settings-tab-content p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--dropdown-text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.settings-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid var(--sidebar-border);
+  margin-bottom: 20px;
+}
+
+.settings-form-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.settings-group-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Theme Selector */
+.theme-selector {
+  display: flex;
+  gap: 8px;
+  background-color: var(--dropdown-hover-bg);
+  padding: 4px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--dropdown-text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.theme-option:hover {
+  color: var(--sidebar-text-main);
+}
+
+.theme-option.active {
+  background-color: #ffffff;
+  color: var(--sidebar-text-main);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.option-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+
+.accent-color-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Custom Accent Dropdown Selector */
+.accent-dropdown-container {
+  position: relative;
+  width: 130px; /* adjusted trigger width for seamless inline fit */
+}
+
+.accent-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--sidebar-text-main, #0f172a);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.accent-dropdown-trigger:hover {
+  background-color: var(--dropdown-hover-bg, #f1f5f9);
+}
+
+.accent-dropdown-preview-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accent-dropdown-color-preview {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.accent-dropdown-trigger .chevron-icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+  transition: transform 0.2s;
+  color: var(--dropdown-text-secondary, #64748b);
+  flex-shrink: 0;
+}
+
+.accent-dropdown-trigger .chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+.accent-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 0.5px solid var(--dropdown-border, #e2e8f0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1000;
+  box-sizing: border-box;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+
+.accent-dropdown-item {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sidebar-text-main, #0f172a);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.accent-dropdown-item:hover {
+  background-color: var(--dropdown-hover-bg, #f1f5f9);
+}
+
+.accent-dropdown-item.active {
+  background-color: var(--dropdown-hover-bg, #f1f5f9);
+  font-weight: 600;
+}
+
+/* Toggles */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toggle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 16px;
+}
+
+.toggle-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.toggle-desc {
+  font-size: 12px;
+  color: var(--dropdown-text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.4;
+}
+
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--sidebar-border);
+  position: relative;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.toggle-switch.on {
+  background-color: var(--active-accent);
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch.on .toggle-thumb {
+  transform: translateX(20px);
+}
+
+/* Dark Mode Overrides for Settings Modal */
+.dark-mode .settings-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .settings-modal-container {
+  background-color: #212121 !important; /* Zinc 900 */
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.5),
+    0 10px 10px -5px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .settings-sidebar::-webkit-scrollbar-thumb,
+.dark-mode .settings-content-pane::-webkit-scrollbar-thumb {
+  background: #1e1e1e !important;
+}
+
+.dark-mode .settings-sidebar::-webkit-scrollbar-thumb:hover,
+.dark-mode .settings-content-pane::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46 !important;
+}
+
+.dark-mode .theme-option.active {
+  background-color: #1e1e1e !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .accent-dropdown-menu {
+  background-color: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Tab specific dark overrides */
+.dark-mode .personalization-select-dropdown {
+  background-color: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .storage-list {
+  background-color: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .settings-nav-item {
+  color: #ffffff !important;
+}
+
+.dark-mode .settings-nav-item:hover {
+  color: #ffffff !important;
+}
+
+.dark-mode .settings-nav-item.active {
+  color: #ffffff !important;
+}
+
+/* Light Mode Overrides for Settings Modal */
+:root:not(.dark-mode) .settings-nav-item {
+  color: #000000 !important;
+}
+
+:root:not(.dark-mode) .settings-nav-item:hover {
+  color: #000000 !important;
+}
+
+:root:not(.dark-mode) .settings-nav-item.active {
+  color: #000000 !important;
+}
+
+/* Dark Mode Global Text Overrides for Settings Modal */
+.dark-mode .settings-modal-container h2,
+.dark-mode .settings-modal-container h3,
+.dark-mode .settings-modal-container h4,
+.dark-mode .settings-modal-container h5,
+.dark-mode .settings-modal-container .settings-group-title,
+.dark-mode .settings-modal-container .toggle-label,
+.dark-mode .settings-modal-container .personalization-label,
+.dark-mode .settings-modal-container .datacontrol-label,
+.dark-mode .settings-modal-container .parental-label,
+.dark-mode .settings-modal-container .storage-label,
+.dark-mode .settings-modal-container .api-config-label,
+.dark-mode .settings-modal-container .accent-dropdown-trigger,
+.dark-mode .settings-modal-container .accent-dropdown-item,
+.dark-mode .settings-modal-container .personalization-select-trigger,
+.dark-mode .settings-modal-container .personalization-select-item,
+.dark-mode .settings-modal-container .voice-select-trigger,
+.dark-mode .settings-modal-container .voice-select-item {
+  color: #ffffff !important;
+}
+
+.dark-mode .settings-modal-container p,
+.dark-mode .settings-modal-container .toggle-desc,
+.dark-mode .settings-modal-container .personalization-desc,
+.dark-mode .settings-modal-container .datacontrol-desc,
+.dark-mode .settings-modal-container .parental-desc,
+.dark-mode .settings-modal-container .storage-manage-desc,
+.dark-mode .settings-modal-container .api-config-desc,
+.dark-mode .settings-modal-container .subpanel-desc {
+  color: rgba(255, 255, 255, 0.55) !important;
+}

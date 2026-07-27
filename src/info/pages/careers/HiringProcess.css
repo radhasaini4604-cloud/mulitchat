@@ -1,0 +1,297 @@
+/* Hiring Process Section Styling */
+.hiring-process-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 120px auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.pipeline-flow-container {
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Horizontal Connector Line */
+.pipeline-connector {
+  position: absolute;
+  top: 102px; /* aligns perfectly with the center of the step dots */
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  z-index: 1;
+}
+
+.pipeline-connector-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Guide line and beam line initial drawing states */
+.pipeline-connector-svg line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiring-process-section.active .pipeline-connector-svg line.guide-line {
+  stroke-dashoffset: 0;
+}
+
+.hiring-process-section.active .pipeline-connector-svg line.pipeline-beam {
+  stroke-dashoffset: 0;
+  animation: travelBeam 8s linear infinite;
+  animation-delay: 2.2s; /* triggers traveling laser beam once line fully draws */
+}
+
+@keyframes travelBeam {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+/* Steps Grid */
+.pipeline-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Step Item Container */
+.pipeline-step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease,
+              opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+  min-height: 280px;
+  cursor: pointer;
+
+  /* Cinematic hidden state */
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(6px);
+}
+
+/* Active viewport state */
+.hiring-process-section.active .pipeline-step-item {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Background Soft Glow on Hover */
+.step-backlight {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pipeline-step-item:hover .step-backlight {
+  opacity: 1;
+}
+
+/* Step Number Styling */
+.step-number-wrapper {
+  margin-bottom: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-giant-number {
+  font-family: 'Inter', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Clip-path reveal from bottom to top */
+  clip-path: inset(100% 0 0 0);
+}
+
+.hiring-process-section.active .pipeline-step-item .step-giant-number {
+  clip-path: inset(0 0 0 0);
+}
+
+.pipeline-step-item:hover .step-giant-number {
+  color: #ffffff;
+}
+
+/* Dot/Node Node Layout */
+.step-node-line {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 24px;
+}
+
+.step-node-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #020205;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+  /* Pop scale zoom state */
+  transform: scale(0);
+}
+
+.hiring-process-section.active .pipeline-step-item .step-node-dot {
+  transform: scale(1);
+}
+
+.step-node-inner {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.pipeline-step-item:hover .step-node-dot {
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: scale(1.15);
+}
+
+.pipeline-step-item:hover .step-node-inner {
+  background-color: #ffffff;
+  transform: scale(1.3);
+}
+
+/* Step Content Styles */
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.08em;
+  transition: letter-spacing 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiring-process-section.active .pipeline-step-item .step-item-title {
+  letter-spacing: -0.01em;
+}
+
+.step-item-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.pipeline-step-item:hover .step-item-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Staggered reveal animation delays per step */
+.pipeline-step-item:nth-child(1) { transition-delay: 0.1s; }
+.pipeline-step-item:nth-child(1) .step-giant-number { transition-delay: 0.2s; }
+.pipeline-step-item:nth-child(1) .step-node-dot { transition-delay: 0.3s; }
+
+.pipeline-step-item:nth-child(2) { transition-delay: 0.5s; }
+.pipeline-step-item:nth-child(2) .step-giant-number { transition-delay: 0.6s; }
+.pipeline-step-item:nth-child(2) .step-node-dot { transition-delay: 0.7s; }
+
+.pipeline-step-item:nth-child(3) { transition-delay: 0.9s; }
+.pipeline-step-item:nth-child(3) .step-giant-number { transition-delay: 1.0s; }
+.pipeline-step-item:nth-child(3) .step-node-dot { transition-delay: 1.1s; }
+
+.pipeline-step-item:nth-child(4) { transition-delay: 1.3s; }
+.pipeline-step-item:nth-child(4) .step-giant-number { transition-delay: 1.4s; }
+.pipeline-step-item:nth-child(4) .step-node-dot { transition-delay: 1.5s; }
+
+.pipeline-step-item:nth-child(5) { transition-delay: 1.7s; }
+.pipeline-step-item:nth-child(5) .step-giant-number { transition-delay: 1.8s; }
+.pipeline-step-item:nth-child(5) .step-node-dot { transition-delay: 1.9s; }
+
+/* Responsive Styles for Mobile and Tablet */
+@media (max-width: 1024px) {
+  .pipeline-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .pipeline-connector {
+    display: none; /* remove laser beam line on wrap */
+  }
+  .pipeline-step-item {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .hiring-process-section {
+    padding: 0 20px;
+    margin-bottom: 80px;
+  }
+  
+  .pipeline-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .pipeline-step-item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px 16px;
+    min-height: auto;
+    gap: 16px;
+  }
+  
+  .step-number-wrapper {
+    margin-bottom: 0;
+    height: auto;
+  }
+  
+  .step-node-line {
+    display: none; /* hide vertical node circles on mobile for text focus */
+  }
+  
+  .step-content {
+    align-items: flex-start;
+  }
+}

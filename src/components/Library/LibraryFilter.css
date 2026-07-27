@@ -1,0 +1,440 @@
+.lib-filter-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 679px;
+  margin: 0 auto 48px auto;
+  box-sizing: border-box;
+}
+
+/* Category Tabs (Left) */
+.lib-tab-row {
+  display: flex;
+  gap: 8px;
+}
+
+.lib-tab {
+  background: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 99px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--lib-text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  outline: none;
+}
+
+.lib-tab:hover {
+  color: var(--lib-text);
+  background-color: var(--lib-btn-hover);
+}
+
+.lib-tab.active {
+  background-color: var(--lib-btn-active-bg) !important;
+  color: var(--lib-btn-active-text) !important;
+  font-weight: 550;
+}
+
+/* Controls (Right) */
+.lib-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lib-search-wrapper {
+  position: relative;
+  width: 260px;
+}
+
+.lib-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 17px;
+  height: 17px;
+  color: var(--lib-text-muted-more);
+  pointer-events: none;
+}
+
+.lib-search-field {
+  width: 100%;
+  height: 40px;
+  background-color: var(--lib-input-bg);
+  border: none;
+  border-radius: 99px;
+  padding: 0 18px 0 42px;
+  color: var(--lib-text);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.lib-search-field:focus {
+  box-shadow: 0 0 0 2px var(--lib-border);
+}
+
+.lib-calendar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lib-calendar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--lib-text);
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  width: auto;
+  height: auto;
+  transition: opacity 0.2s;
+}
+
+.lib-calendar-btn:hover {
+  opacity: 0.8;
+}
+
+.lib-calendar-btn.active {
+  color: var(--lib-text);
+}
+
+.lib-calendar-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--lib-text);
+  border-radius: 50%;
+}
+
+.lib-calendar-svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Layout view toggles styling */
+.lib-layout-toggles {
+  display: flex;
+  background-color: var(--lib-input-bg);
+  border: none;
+  border-radius: 99px;
+  padding: 4px;
+}
+
+.lib-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: 99px;
+  color: var(--lib-text-muted);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lib-toggle-btn:hover {
+  color: var(--lib-text);
+}
+
+.lib-toggle-btn.active {
+  background-color: var(--lib-btn-active-bg) !important;
+  color: var(--lib-btn-active-text) !important;
+}
+
+.lib-layout-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* CALENDAR FILTER POPUP DROPDOWN STYLES */
+.lib-calendar-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 280px;
+  background-color: var(--lib-bg);
+  border: 1px solid var(--lib-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.lib-cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lib-cal-month-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--lib-text);
+}
+
+.lib-cal-nav-btn {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--lib-text);
+  opacity: 0.6;
+  outline: none;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.lib-cal-nav-btn:hover {
+  opacity: 1;
+  background-color: var(--lib-btn-hover);
+}
+
+.lib-cal-nav-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.lib-cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--lib-text-muted);
+  margin-top: 4px;
+}
+
+.lib-cal-weekday {
+  padding: 2px 0;
+}
+
+.lib-cal-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.lib-cal-day-cell {
+  background: none;
+  border: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--lib-text);
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lib-cal-day-cell:hover:not(:disabled) {
+  background-color: var(--lib-btn-hover);
+}
+
+.lib-cal-day-cell.other-month {
+  color: var(--lib-text-muted-more);
+}
+
+.lib-cal-day-cell.selected {
+  background-color: var(--lib-btn-active-bg) !important;
+  color: var(--lib-btn-active-text) !important;
+  font-weight: 700;
+}
+
+.lib-cal-day-cell.today {
+  border: 1px solid var(--lib-text);
+  color: var(--lib-text);
+}
+
+.lib-cal-day-cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.lib-cal-footer {
+  border-top: 1px solid var(--lib-border-soft);
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lib-cal-clear-btn {
+  background: none;
+  border: none;
+  color: var(--lib-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.lib-cal-clear-btn:hover {
+  background-color: var(--lib-btn-hover);
+}
+
+@media (max-width: 768px) {
+  .lib-filter-controls-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .lib-tab-row {
+    justify-content: center;
+  }
+  .lib-controls {
+    justify-content: center;
+  }
+  .lib-search-wrapper {
+    flex: 1;
+    width: auto;
+  }
+}
+
+/* Custom Tooltip Styles */
+.lib-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: var(--lib-btn-active-bg);
+  color: var(--lib-btn-active-text);
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.lib-tooltip-wrapper:hover .lib-tooltip-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.lib-tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 4px 0 4px;
+  border-style: solid;
+  border-color: var(--lib-btn-active-bg) transparent transparent transparent;
+}
+
+/* Bulk actions header bar in selection mode */
+.lib-bulk-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lib-bulk-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 550;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  height: 34px;
+  box-sizing: border-box;
+}
+
+.lib-bulk-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-0.5px);
+}
+
+.lib-bulk-btn-svg {
+  width: 14px;
+  height: 14px;
+}
+
+.start-chat-btn {
+  background-color: #ffffff;
+  color: #0b0b0c;
+  border: none;
+}
+
+.action-pill-btn {
+  background-color: #212121;
+  color: #ffffff;
+  border: none;
+}
+
+.delete-pill-btn {
+  background-color: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.select-mode-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lib-selected-count-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.lib-clear-select-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.lib-clear-select-btn:hover {
+  color: #ffffff;
+}

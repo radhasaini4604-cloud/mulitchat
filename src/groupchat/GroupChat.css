@@ -1,0 +1,21 @@
+.groupchat-container {
+  flex: 1;
+  display: flex;
+  height: 100vh;
+  background: var(--groupchat-bg, #ffffff);
+  color: var(--groupchat-text, #1f1f1f);
+  font-family: inherit;
+}
+
+.dark-mode .groupchat-container {
+  background: #000000;
+  color: #e3e3e3;
+}
+
+.app-main-layout.groupchat-mode {
+  background-color: var(--groupchat-bg, #ffffff) !important;
+}
+
+.dark-mode .app-main-layout.groupchat-mode {
+  background-color: #000000 !important;
+}

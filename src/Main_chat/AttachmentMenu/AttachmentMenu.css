@@ -1,0 +1,71 @@
+.attachment-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.attachment-dropdown-menu {
+  position: absolute;
+  bottom: calc(100% + 8px); /* Open upwards */
+  left: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 
+    0 -12px 30px -10px rgba(0, 0, 0, 0.08), 
+    -6px -12px 20px -8px rgba(59, 130, 246, 0.12), 
+    6px -12px 20px -8px rgba(234, 179, 8, 0.12),
+    0 -1px 3px rgba(0, 0, 0, 0.02);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 175px;
+  z-index: 100;
+  
+  /* Premium roll up animation */
+  transform-origin: bottom left;
+  animation: attachmentRollUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes attachmentRollUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.attachment-dropdown-item {
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #000000; /* Pure black text */
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.attachment-dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.attachment-dropdown-item:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.menu-item-icon {
+  color: #000000; /* Pure black icon color */
+  flex-shrink: 0;
+}

@@ -1,0 +1,128 @@
+.storage-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.storage-header-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.storage-usage-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.storage-usage-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+}
+
+.storage-progress-track {
+  height: 8px;
+  background-color: var(--dropdown-hover-bg);
+  border-radius: 4px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.storage-progress-bar {
+  height: 100%;
+  background-color: var(--active-accent, #a1a1aa);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.storage-manage-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.storage-manage-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.storage-manage-header h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--sidebar-text-main);
+}
+
+.storage-manage-desc {
+  font-size: 12px;
+  color: var(--dropdown-text-secondary);
+}
+
+.storage-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.storage-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.storage-list-item:hover {
+  background-color: var(--dropdown-hover-bg);
+}
+
+.storage-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.storage-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sidebar-text-main);
+}
+
+.storage-item-details {
+  font-size: 12px;
+  color: var(--dropdown-text-secondary);
+}
+
+.storage-list-item .chevron-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--dropdown-text-secondary);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.storage-list-item:hover .chevron-icon {
+  color: var(--sidebar-text-main);
+  transform: translateX(2px);
+}
+
+.storage-divider {
+  height: 1px;
+  background-color: var(--sidebar-border);
+  margin: 0;
+}

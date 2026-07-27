@@ -1,0 +1,722 @@
+.search-modal-overlay {
+  z-index: 2000;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.search-modal-container {
+  width: 100%;
+  max-width: 680px;
+  background: radial-gradient(140% 140% at 50% -10%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 60%, rgba(245, 245, 250, 0.35) 100%);
+  border: none;
+  border-radius: 26px;
+  box-shadow:
+    0 40px 100px -15px rgba(0, 0, 0, 0.18),
+    0 15px 35px -5px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(50px) saturate(220%);
+  -webkit-backdrop-filter: blur(50px) saturate(220%);
+  padding: 24px 28px;
+  position: relative;
+  animation: searchModalScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@keyframes searchModalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Header bar containing Search icon, Input, and Close button */
+.search-bar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  border-radius: 16px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.search-input-icon {
+  width: 20px;
+  height: 20px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.search-input-field {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #0f172a;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.search-input-field::placeholder {
+  color: #94a3b8;
+}
+
+.search-modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.search-modal-close-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.search-close-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Custom Calendar Filter Button & Popover */
+.calendar-filter-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-modal-calendar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.search-modal-calendar-btn:hover,
+.search-modal-calendar-btn.active {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.calendar-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.calendar-active-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  background-color: #0f172a;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+}
+
+.calendar-dropdown {
+  position: absolute;
+  top: -12px;
+  left: calc(100% + 86px);
+  width: 280px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 20px -2px rgba(0, 0, 0, 0.02),
+    0 12px 32px -4px rgba(0, 0, 0, 0.04),
+    0 24px 64px -8px rgba(0, 0, 0, 0.06),
+    0 40px 96px -12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  padding: 18px;
+  z-index: 100;
+  transform-origin: left center;
+  animation: calendarFadeInRight 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pointer arrow */
+.calendar-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-left: 1px solid rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  transform: rotate(45deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes calendarFadeInRight {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+.calendar-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.calendar-month-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.calendar-nav-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.calendar-nav-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  padding: 2px 0;
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 4px;
+  column-gap: 4px;
+  margin-bottom: 12px;
+}
+
+.calendar-day-cell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #334155;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.calendar-day-cell:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.calendar-day-cell.other-month {
+  color: #cbd5e1;
+}
+
+.calendar-day-cell.selected {
+  background-color: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.calendar-day-cell.today-marker {
+  border: 1px dashed #64748b;
+}
+
+.calendar-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 8px;
+}
+
+.calendar-clear-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.calendar-clear-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* Active Date Filter Banner */
+.active-filter-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.active-filter-banner strong {
+  color: #0f172a;
+}
+
+.clear-filter-chip-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.clear-filter-chip-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.clear-chip-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Scrollable search modal body */
+.search-modal-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 60vh;
+}
+
+/* New Chat shortcut row style */
+.search-new-chat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.search-new-chat-row:hover {
+  background-color: #f8fafc;
+}
+
+.search-new-chat-row .search-row-title {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+
+/* Results listing styling */
+.search-results-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 4px;
+  max-height: 240px;
+}
+
+.search-results-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+/* Date grouping layout */
+.search-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.search-group-header {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  padding-left: 14px;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Individual list item row style */
+.search-chat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.search-chat-row:hover {
+  background-color: #f8fafc;
+}
+
+.search-row-icon {
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.search-chat-row:hover .search-row-icon {
+  color: #0f172a;
+}
+
+.search-row-title {
+  font-size: 14px;
+  color: #334155;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: color 0.2s;
+}
+
+.search-chat-row:hover .search-row-title {
+  color: #0f172a;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+/* Empty State */
+.search-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.search-empty-text {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Responsive adjustments for smaller screen space */
+@media (max-width: 1100px) {
+  .calendar-dropdown {
+    left: auto;
+    right: 0;
+    top: calc(100% + 8px);
+    transform-origin: top right;
+    animation: calendarFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .calendar-dropdown::after {
+    display: none;
+  }
+}
+
+/* Dark Mode Overrides for Search Modal */
+.dark-mode .search-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.dark-mode .search-modal-container {
+  background: #1f1f1f !important;
+  border: none !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dark-mode .search-bar-header {
+  background: #141416 !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 14px !important;
+  padding: 10px 16px !important;
+  box-shadow: none !important;
+  margin-bottom: 20px !important;
+}
+
+.dark-mode .search-input-icon {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .search-input-field {
+  color: #ffffff !important;
+}
+
+.dark-mode .search-input-field::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.dark-mode .search-modal-close-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 10px !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.dark-mode .search-modal-close-btn:hover {
+  background: #2a2a2a !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .search-modal-calendar-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 10px !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.dark-mode .search-modal-calendar-btn:hover,
+.dark-mode .search-modal-calendar-btn.active {
+  background: #2a2a2a !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .calendar-active-badge {
+  background-color: #ffffff !important;
+  border-color: #1f1f1f !important;
+}
+
+.dark-mode .calendar-dropdown {
+  background: #1f1f1f !important;
+  border: none !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dark-mode .calendar-dropdown::after {
+  background: #1f1f1f !important;
+  border: none !important;
+}
+
+.dark-mode .calendar-month-title {
+  color: #ffffff !important;
+}
+
+.dark-mode .calendar-nav-btn {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .calendar-nav-btn:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .calendar-weekday {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark-mode .calendar-day-cell {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark-mode .calendar-day-cell:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .calendar-day-cell.other-month {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.dark-mode .calendar-day-cell.selected {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.dark-mode .calendar-day-cell.today-marker {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark-mode .calendar-footer {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .calendar-clear-btn:hover {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+.dark-mode .active-filter-banner {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .active-filter-banner strong {
+  color: #ffffff !important;
+}
+
+.dark-mode .clear-filter-chip-btn:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .search-new-chat-row {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.dark-mode .search-new-chat-row:hover {
+  background: #282828 !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  border-radius: 12px !important;
+}
+
+.dark-mode .search-new-chat-row .search-row-title {
+  color: #ffffff !important;
+}
+
+.dark-mode .search-results-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .search-results-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .search-group-header {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark-mode .search-chat-row {
+  border-radius: 12px !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.dark-mode .search-chat-row:hover {
+  background: #282828 !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.dark-mode .search-row-icon {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .search-chat-row:hover .search-row-icon {
+  color: #ffffff !important;
+}
+
+.dark-mode .search-row-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark-mode .search-chat-row:hover .search-row-title {
+  color: #ffffff !important;
+}

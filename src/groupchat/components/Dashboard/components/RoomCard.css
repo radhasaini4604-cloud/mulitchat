@@ -1,0 +1,99 @@
+.room-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 6px;
+}
+
+.room-row:hover {
+  background-color: var(--sidebar-hover-bg);
+}
+
+.room-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.room-row-icon {
+  color: var(--groupchat-text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.room-row:hover .room-row-icon {
+  color: var(--groupchat-text);
+}
+
+.room-row-name {
+  font-weight: 400;
+  color: var(--groupchat-text);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.room-row:hover .room-row-name {
+  color: var(--groupchat-text);
+}
+
+.room-row-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.room-row-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  background: var(--groupchat-item-bg);
+  border: 1px solid var(--groupchat-border);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--groupchat-text-muted);
+}
+
+.room-row-date {
+  font-size: 12px;
+  color: var(--groupchat-text-muted);
+  min-width: 60px;
+  text-align: right;
+}
+
+.room-icon-select-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.room-icon-select-wrapper.active:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.room-row-icon.selected {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+.dark-mode .room-row-icon.selected {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.room-row-rename-input {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--groupchat-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}

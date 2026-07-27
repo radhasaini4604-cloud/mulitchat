@@ -1,0 +1,423 @@
+.summary-modal-container {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff; /* keep all in one ui color white */
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.03),
+    0 30px 60px rgba(0, 0, 0, 0.1);
+  padding: 28px;
+  position: relative;
+  animation: modalScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-modal-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  height: 100%;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.summary-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  text-align: center;
+}
+
+.summary-modal-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  text-align: center;
+  font-weight: 400;
+}
+
+.summary-body {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 4px;
+  margin-bottom: 16px;
+}
+
+/* Scrollbar styles for summary body */
+.summary-body::-webkit-scrollbar {
+  width: 6px;
+}
+.summary-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.summary-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.summary-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.summary-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  gap: 16px;
+}
+
+.summary-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0, 0, 0, 0.05);
+  border-top-color: #0f172a;
+  border-radius: 50%;
+  animation: summarySpin 0.8s linear infinite;
+}
+
+@keyframes summarySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.summary-loading-text {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-weight: 500;
+  color: #334155;
+  animation: summaryPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes summaryPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.summary-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  color: #dc2626;
+  gap: 12px;
+  text-align: center;
+}
+
+.error-icon {
+  width: 48px;
+  height: 48px;
+  color: #dc2626;
+}
+
+.error-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.summary-text-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.summary-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 16px;
+}
+
+/* Actions wrapper & trigger button */
+.summary-actions-wrapper {
+  position: absolute;
+  top: 16px;
+  right: 52px;
+  display: inline-block;
+}
+
+.summary-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.summary-menu-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Dropdown Submenu */
+.summary-submenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -4px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 6px;
+  z-index: 1010;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-sizing: border-box;
+}
+
+.summary-submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.summary-submenu-item:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.summary-submenu-item svg {
+  color: #64748b;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.summary-submenu-item:hover svg {
+  color: #0f172a;
+}
+
+.summary-submenu-divider {
+  height: 1px;
+  background-color: #f1f5f9;
+  margin: 4px 0;
+}
+
+/* Delete Item Overrides */
+.summary-submenu-item.delete-item {
+  color: #dc2626;
+}
+
+.summary-submenu-item.delete-item:hover {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.summary-submenu-item.delete-item svg {
+  color: #dc2626;
+}
+
+.summary-submenu-item.delete-item:hover svg {
+  color: #b91c1c;
+}
+
+/* Hover Nested Submenu for Export */
+.export-wrapper {
+  position: relative;
+}
+
+.export-nested-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin-right: 4px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -4px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 6px;
+  min-width: 170px;
+  flex-direction: column;
+  gap: 2px;
+  box-sizing: border-box;
+  z-index: 1020;
+}
+
+.export-wrapper:hover .export-nested-submenu {
+  display: flex;
+}
+
+.nested-submenu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nested-submenu-item:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Dark Mode Overrides for Summary Modal */
+.dark-mode .summary-modal-container {
+  background: #212121 !important; /* Zinc 900 */
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    0 30px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode .summary-modal-title {
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .summary-modal-subtitle {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .summary-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark-mode .summary-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+}
+
+.dark-mode .summary-loading-container {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .summary-spinner {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  border-top-color: #ffffff !important;
+}
+
+.dark-mode .summary-loading-text {
+  color: #e4e4e7 !important;
+}
+
+.dark-mode .summary-text-content {
+  color: #e4e4e7 !important;
+}
+
+.dark-mode .summary-modal-footer {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .summary-menu-btn {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .summary-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .summary-submenu {
+  background-color: #212121 !important;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -4px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .summary-submenu-item {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .summary-submenu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .summary-submenu-item svg {
+  color: #71717a !important;
+}
+
+.dark-mode .summary-submenu-item:hover svg {
+  color: #ffffff !important;
+}
+
+.dark-mode .summary-submenu-divider {
+  background-color: #1e1e1e !important;
+}
+
+.dark-mode .summary-submenu-item.delete-item {
+  color: #f87171 !important;
+}
+
+.dark-mode .summary-submenu-item.delete-item:hover {
+  background-color: #7f1d1d !important;
+  color: #fca5a5 !important;
+}
+
+.dark-mode .summary-submenu-item.delete-item svg {
+  color: #f87171 !important;
+}
+
+.dark-mode .summary-submenu-item.delete-item:hover svg {
+  color: #fca5a5 !important;
+}
+
+.dark-mode .export-nested-submenu {
+  background-color: #212121 !important;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -4px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .nested-submenu-item {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .nested-submenu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}

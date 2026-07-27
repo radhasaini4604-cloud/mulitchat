@@ -1,0 +1,113 @@
+.groupchat-show-all-btn {
+  display: block;
+  background: #f1f5f9;
+  border: none;
+  color: var(--groupchat-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 99px;
+  text-align: center;
+  width: fit-content;
+  margin: 16px auto 20px auto;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.dark-mode .groupchat-show-all-btn {
+  background: #1a1a1a;
+}
+
+.groupchat-show-all-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.dark-mode .groupchat-show-all-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-list {
+  max-height: 220px !important;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.modal-list::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.modal-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 99px;
+}
+
+.dark-mode .modal-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.modal-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .modal-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.rooms-bulk-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 6px 0;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.bulk-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.dark-mode .bulk-action-btn {
+  color: #ffffff;
+}
+
+.bulk-action-btn:hover:not(:disabled) {
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .bulk-action-btn:hover:not(:disabled) {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.bulk-action-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.bulk-action-btn.delete-selected {
+  margin-left: auto;
+  color: #ef4444;
+}
+
+.bulk-action-btn.delete-selected:hover:not(:disabled) {
+  color: #ffffff;
+  background-color: #ef4444;
+}

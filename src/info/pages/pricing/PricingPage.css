@@ -1,0 +1,755 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.pricing-page-new {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Smooth background grid visible only under the top-left glow */
+.pricing-page-new::before {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: calc(50vw - 160px);
+  height: 190px;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: left top;
+  -webkit-mask-image: 
+    linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 25%, transparent 100%);
+  mask-image: 
+    linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 25%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* Override Navbar to be transparent on this page */
+.pricing-page-new .landing-navbar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 10;
+}
+
+.pricing-page-new .landing-navbar a,
+.pricing-page-new .landing-navbar button,
+.pricing-page-new .landing-navbar span {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.pricing-page-new .landing-navbar svg {
+  stroke: rgba(255, 255, 255, 0.9) !important;
+}
+
+.pricing-page-new .landing-navbar .landing-login-btn {
+  background: #ffffff !important;
+  color: #0b0b0c !important;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease !important;
+}
+
+.pricing-page-new .landing-navbar .landing-login-btn:hover {
+  background: #ffffff !important;
+  color: #0b0b0c !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35), 0 0 40px rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+
+
+.pricing-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1600px;
+  padding: 70px 24px 30px 24px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.pricing-title {
+  font-size: 2.1rem;
+  font-weight: 400 !important;
+  line-height: 1.2;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.015em;
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+.pricing-subtitle {
+  font-size: 0.78rem !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  margin: 0;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em;
+}
+
+.pricing-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 380px);
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 968px) {
+  .pricing-cards-container {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 32px;
+  }
+}
+
+.pricing-card {
+  height: auto;
+  min-height: 460px;
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+}
+
+.pricing-card-title {
+  margin: 0 0 16px 0;
+  font-size: 1.25rem;
+  font-weight: 500 !important;
+  color: #ffffff;
+  font-family: Sebenta, "Sebenta Fallback: Georgia", Georgia, serif !important;
+}
+
+.pricing-card-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.price-amount {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 4px;
+}
+
+.pricing-card-description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+.pricing-card-button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  margin-bottom: 32px;
+}
+
+.pricing-card-button.light-btn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.pricing-card-button.light-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.pricing-card-button.dark-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card-button.dark-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.pricing-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.pricing-card-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pricing-card-features svg {
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Premium Card (Uiverse Inspired Glow & Border) */
+.premium-outer {
+  border-radius: 20px;
+  padding: 1px;
+  background: radial-gradient(circle 220px at 0% 0%, rgba(255, 255, 255, 0.45), transparent);
+  position: relative;
+  display: flex;
+}
+
+.premium-outer .pricing-card.premium-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 19px;
+  border: none !important;
+  background: radial-gradient(circle 380px at 0% 0%, #222226, #0c0d0d) !important;
+  box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-outer .pricing-card.premium-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.033;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.premium-outer .pricing-card.premium-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.premium-outer .pricing-card.premium-card .premium-ray {
+  position: absolute;
+  width: 250px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: #c7c7c7;
+  opacity: 0.15;
+  box-shadow: 0 0 50px #ffffff;
+  filter: blur(12px);
+  transform-origin: 10%;
+  top: 0%;
+  left: 0;
+  transform: rotate(40deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Second card (Enterprise) custom flow: darker gradient & borderless */
+.pricing-cards-container .enterprise-card {
+  background: radial-gradient(circle 400px at 0% 0%, #121214, #050506) !important;
+  border: none !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 30px 60px -15px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Radio Toggle Switch Styles */
+.di-radio-wrap {
+  width: 340px;
+  margin: 0px auto 20px auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.di-radio-input {
+  display: none;
+}
+
+.di-radio-island {
+  background: rgba(10, 10, 12, 0.95);
+  border: none !important;
+  border-radius: 999px;
+  padding: 4px;
+  display: flex;
+  position: relative;
+  gap: 4px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9);
+}
+
+.di-radio-btn {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  width: 72px;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.di-radio-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.di-radio-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 72px;
+  height: calc(100% - 8px);
+  background: rgba(255, 255, 255, 0.08);
+  border: none !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#r1:checked~.di-radio-island .di-radio-indicator {
+  transform: translateX(0);
+}
+
+#r2:checked~.di-radio-island .di-radio-indicator {
+  transform: translateX(76px);
+}
+
+#r3:checked~.di-radio-island .di-radio-indicator {
+  transform: translateX(152px);
+}
+
+#r1:checked~.di-radio-island label[for="r1"],
+#r2:checked~.di-radio-island label[for="r2"],
+#r3:checked~.di-radio-island label[for="r3"] {
+  color: #ffffff;
+  transform: translateY(-0.5px);
+}
+
+.di-radio-btn:active {
+  transform: scale(0.94);
+}
+
+/* Detailed Specs Section styling (Borderless Spec Sheet) */
+.pricing-specs-section {
+  width: 96vw;
+  max-width: 1600px;
+  margin: 80px auto;
+  padding: 0 0 80px 0;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.specs-title-main {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 2.2rem;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.specs-subtitle-main {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.spec-radio-wrap {
+  width: 200px;
+  margin: 0px auto 35px auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.spec-radio-input {
+  display: none;
+}
+
+.spec-radio-island {
+  position: relative;
+  display: flex;
+  background-color: rgba(10, 10, 12, 0.95);
+  border: none !important;
+  padding: 4px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.spec-radio-btn {
+  width: 96px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.spec-radio-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 96px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none !important;
+  border-radius: 999px;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#spec-r1:checked ~ .spec-radio-island .spec-radio-indicator {
+  transform: translateX(0);
+}
+
+#spec-r2:checked ~ .spec-radio-island .spec-radio-indicator {
+  transform: translateX(96px);
+}
+
+#spec-r1:checked ~ .spec-radio-island label[for="spec-r1"],
+#spec-r2:checked ~ .spec-radio-island label[for="spec-r2"] {
+  color: #ffffff;
+  transform: translateY(-0.5px);
+}
+
+.spec-radio-btn:active {
+  transform: scale(0.94);
+}
+
+.specs-table-wrapper-new {
+  background: rgba(10, 10, 10, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none !important;
+  border-radius: 20px;
+  padding: 24px 32px;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.specs-table-real {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+.specs-table-real th,
+.specs-table-real td {
+  padding: 18px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.specs-table-real th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+}
+
+.specs-table-real tr:last-child td {
+  border-bottom: none;
+}
+
+.th-feature {
+  text-align: left !important;
+  color: #ffffff !important;
+  font-family: 'Sebenta', serif !important;
+  font-size: 0.9rem !important;
+  min-width: 180px;
+}
+
+.td-feature {
+  text-align: left;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.spec-table-row {
+  transition: background 0.3s ease;
+}
+
+.spec-table-row:hover {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01) 20%, rgba(255, 255, 255, 0.01) 80%, transparent);
+}
+
+.val-empty {
+  color: rgba(255, 255, 255, 0.15);
+  font-weight: 400;
+}
+
+.val-active {
+  color: #ffffff;
+  font-weight: 400;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.spec-table-row:hover .val-active {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+/* Scroll protection for mobile devices */
+@media (max-width: 900px) {
+  .specs-table-real {
+    min-width: 900px;
+  }
+}
+
+/* Pricing CTA Section styling */
+.pricing-cta-section {
+  margin: -45px auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.cta-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.cta-left-btn-wrap {
+  position: relative;
+}
+
+.cta-white-button {
+  height: 52px;
+  width: auto;
+  position: relative;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  border-radius: 999px;
+  color: #0b0b0c;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 32px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  letter-spacing: -0.01em;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12);
+}
+
+.cta-white-button::after {
+  content: "";
+  background: #0b0b0c;
+  position: absolute;
+  z-index: 1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s ease;
+}
+
+.cta-white-button .btn-txt {
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s ease;
+}
+
+.cta-white-button:hover {
+  color: #ffffff;
+}
+
+.cta-white-button:hover .btn-txt {
+  color: #ffffff;
+}
+
+.cta-white-button:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+
+.cta-white-button .arrow {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, color 0.5s ease;
+  color: #0b0b0c;
+}
+
+.cta-white-button:hover .arrow {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+.cta-right-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group .avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  margin-left: -12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.avatar-group .avatar:first-child {
+  margin-left: 0;
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.social-count {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.social-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+}
+
+.cta-benefits-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 6px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.benefit-tick {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .cta-wrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .cta-benefits-row {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+/* Pricing Disclaimer styling */
+.pricing-disclaimer {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin: 20px auto 20px auto;
+  max-width: none;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}

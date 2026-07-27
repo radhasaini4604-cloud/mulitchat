@@ -1,0 +1,395 @@
+/* ActiveWorkspace container */
+.imagine-workspace-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  background-color: #f8fafc;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.dark-mode .imagine-workspace-container {
+  background-color: #000000 !important;
+}
+
+/* Header */
+.imagine-workspace-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid #e2e8f0;
+  background: rgba(248, 250, 252, 0.8);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dark-mode .imagine-workspace-header {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.workspace-header-left {
+  /* empty balance space */
+}
+
+.workspace-title-section {
+  text-align: center;
+}
+
+.workspace-header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.workspace-title-section h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dark-mode .workspace-title-section h2 {
+  color: #ffffff !important;
+}
+
+.workspace-title-section p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+}
+
+.workspace-back-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.workspace-back-btn:hover {
+  opacity: 0.9;
+}
+
+.dark-mode .workspace-back-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Content grid */
+.imagine-workspace-content {
+  padding: 40px 48px 120px 48px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* Workspace Card - STABILISED WITH NO HOVER ANIMATIONS OR LIFT TRANSFORMS */
+.workspace-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 256px;
+  box-sizing: border-box;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  position: relative;
+}
+
+/* Removed hover lift/animations on the card */
+.workspace-card:hover {
+  border-color: #e2e8f0;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+.dark-mode .workspace-card {
+  background: #121212 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .workspace-card:hover {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.workspace-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.dark-mode .workspace-image-wrapper {
+  background: #1c1c1f !important;
+}
+
+.workspace-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: none; /* Explicitly disable any animations */
+}
+
+/* Loader Styles */
+.workspace-loading-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  background: #000000 !important; /* Premium dark background for WebGL */
+}
+
+/* Overlay elements for visual clarity and glassmorphic premium tone */
+.workspace-loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45); /* Dark shade to improve text readability */
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.workspace-loading-progress-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pulsing-indicator-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f472b6;
+  box-shadow: 0 0 10px #f472b6;
+  animation: pulse-pink-dot 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-pink-dot {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.workspace-loading-info h4.generation-status-title {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: -0.01em;
+}
+
+.workspace-loading-info p.generation-status-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Actions */
+.workspace-card-actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 5;
+  opacity: 1;
+}
+
+.workspace-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.workspace-icon-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+/* Removed hover scale animations from buttons */
+.workspace-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+.workspace-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.workspace-icon-btn.no-bg {
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.workspace-icon-btn.no-bg:hover {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.workspace-hover-summary {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Lightbox */
+.workspace-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-mode .workspace-lightbox-overlay {
+  background-color: #000000 !important;
+}
+
+.workspace-lightbox-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+.dark-mode .workspace-lightbox-topbar {
+  background: rgba(24, 24, 27, 0.8) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.lightbox-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightbox-btn-icon {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.lightbox-btn-icon:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #0f172a;
+}
+
+.dark-mode .lightbox-btn-icon {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .lightbox-btn-icon:hover {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+.lightbox-btn-primary {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.dark-mode .lightbox-btn-primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.workspace-lightbox-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+}
+
+.workspace-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  cursor: default;
+}

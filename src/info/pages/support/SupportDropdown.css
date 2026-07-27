@@ -1,0 +1,104 @@
+/* SupportPage custom styling overlays */
+
+.support-dropdown-container {
+  position: relative;
+  width: 100%;
+}
+
+.support-dropdown-trigger {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              -1px -1px 6px rgba(255, 255, 255, 0.12), 
+              inset 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              inset -1px -1px 6px rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.support-dropdown-trigger:hover,
+.support-dropdown-trigger:focus {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              -1px -1px 6px rgba(255, 255, 255, 0.12), 
+              inset 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              inset -1px -1px 6px rgba(255, 255, 255, 0.12);
+}
+
+.support-dropdown-trigger .chevron-icon {
+  transition: transform 0.25s ease;
+}
+
+.support-dropdown-trigger.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Custom Dropdown Menu (floating dark glassmorphic card) */
+.support-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(18, 18, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  overflow: hidden;
+  transform-origin: top;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: supportRollDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes supportRollDown {
+  from {
+    opacity: 0;
+    transform: scaleY(0.9) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+.support-dropdown-item {
+  width: 100%;
+  padding: 12px 18px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #a1a1aa;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: block;
+}
+
+.support-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.support-dropdown-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.support-divider {
+  margin: 40px 0 !important;
+}

@@ -1,0 +1,231 @@
+/* InfoCard Component Styles */
+.submodal-header-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.submodal-header-banner.centered {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.submodal-group-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.submodal-group-title-col.centered {
+  align-items: center;
+}
+
+.submodal-clean-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submodal-clean-title-row.centered {
+  justify-content: center;
+}
+
+.submodal-display-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--groupchat-text);
+  letter-spacing: -0.01em;
+}
+
+.submodal-display-title.clickable {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.submodal-display-title.clickable:hover {
+  opacity: 0.8;
+}
+
+.submodal-inline-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.submodal-created-subtext {
+  font-size: 12.5px;
+  color: var(--groupchat-text-muted);
+}
+
+.submodal-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--groupchat-item-bg, rgba(255, 255, 255, 0.04));
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dark-mode .stat-card {
+  background: #2a2a2a;
+}
+
+.stat-num {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--groupchat-text);
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--groupchat-text-muted);
+  letter-spacing: 0.5px;
+}
+
+.submodal-unified-share-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--groupchat-item-bg, #f1f5f9);
+  border-radius: 99px;
+  padding: 8px 12px 8px 20px;
+  margin-bottom: 20px;
+}
+
+.dark-mode .submodal-unified-share-card {
+  background: #1a1a1a;
+}
+
+.share-card-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--groupchat-text-muted);
+  letter-spacing: 0.5px;
+}
+
+.share-card-url {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--groupchat-text);
+  font-family: ui-monospace, monospace;
+}
+
+.share-card-actions {
+  display: flex;
+  align-items: center;
+}
+
+.submodal-icon-copy-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--groupchat-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.submodal-icon-copy-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--groupchat-text);
+}
+
+.dark-mode .submodal-icon-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submodal-icon-copy-btn.copied {
+  background: transparent !important;
+  color: var(--groupchat-text) !important;
+}
+
+.submodal-icon-copy-btn.copied svg {
+  stroke: var(--groupchat-text) !important;
+  fill: none !important;
+}
+
+.submodal-quick-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.submodal-quick-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  background: var(--groupchat-item-bg, #f1f5f9);
+  border: none !important;
+  color: var(--groupchat-text);
+  border-radius: 99px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s, opacity 0.15s;
+  box-sizing: border-box;
+}
+
+.dark-mode .submodal-quick-btn {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.submodal-quick-btn:hover {
+  background: var(--groupchat-item-hover-bg, #e2e8f0);
+}
+
+.dark-mode .submodal-quick-btn:hover {
+  background: #262626;
+}
+
+.top-center-copied-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 10000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: roomNavbarFadeIn 0.2s ease-out;
+}
+
+.dark-mode .top-center-copied-toast {
+  background: #ffffff;
+  color: #000000;
+}

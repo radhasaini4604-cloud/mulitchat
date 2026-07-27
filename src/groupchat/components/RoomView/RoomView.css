@@ -1,0 +1,364 @@
+:root {
+  --groupchat-chat-bg: #ffffff;
+  --groupchat-composer-bg: #ffffff;
+  --groupchat-text: #1f1f1f;
+  --groupchat-text-muted: #5f6368;
+}
+
+.dark-mode {
+  --groupchat-chat-bg: #000000;
+  --groupchat-composer-bg: #000000;
+  --groupchat-text: #e3e3e3;
+  --groupchat-text-muted: #9aa0a6;
+  --groupchat-btn-bg: #141414;
+  --groupchat-btn-hover-bg: #1e1e1e;
+  --groupchat-btn-text: #ffffff;
+}
+
+/* Room Mode Layout */
+.groupchat-container.room-mode {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex: 1;
+  min-width: 0;
+  background: var(--groupchat-chat-bg);
+  color: var(--groupchat-text);
+  overflow: hidden;
+}
+
+/* Chat Area Layout */
+.room-chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--groupchat-chat-bg);
+  transition: background 0.3s;
+  min-height: 0;
+}
+
+.messages-scroller {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+}
+
+.no-msgs {
+  text-align: center;
+  margin-top: 64px;
+  font-style: italic;
+}
+
+.loading-text, .error-card {
+  margin: auto;
+  text-align: center;
+  padding: 40px 32px;
+  max-width: 420px;
+  background: var(--groupchat-composer-bg, #000000);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.error-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  margin-bottom: 16px;
+}
+
+.error-card h3 {
+  color: var(--groupchat-text);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.error-card p {
+  color: var(--groupchat-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.error-back-btn {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.error-back-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.groupchat-btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--groupchat-btn-bg, #1f2023);
+  color: var(--groupchat-btn-text, #ffffff);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.groupchat-btn:hover {
+  background: var(--groupchat-btn-hover-bg, #2d2f34);
+}
+
+/* Loading Screen overrides */
+.room-loading-screen {
+  background: var(--groupchat-chat-bg) !important;
+  color: var(--groupchat-text) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+.room-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.room-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: groupchatSpin 0.8s linear infinite;
+}
+
+@keyframes groupchatSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.room-loading-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--groupchat-text-muted);
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+/* Room Creation Banner */
+.room-creation-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 40px auto;
+  text-align: center;
+  max-width: 400px;
+  padding: 16px;
+  border-radius: 12px;
+  user-select: none;
+}
+
+.room-creation-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--groupchat-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.room-creation-desc {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--groupchat-text-muted);
+}
+
+/* Collab Typing Indicators Styles */
+.collab-typing-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 16px;
+  margin: 8px auto;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+.typing-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--groupchat-text-muted);
+  animation: groupchatFadeIn 0.2s ease-out;
+}
+
+.typing-animation-dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.typing-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--groupchat-text-muted);
+  border-radius: 50%;
+  display: inline-block;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% { 
+    transform: scale(0.2);
+    opacity: 0.3;
+  } 
+  40% { 
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes groupchatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   HYPER-REALISTIC LIQUID GLASS "BACK TO BOTTOM" BUTTON
+   ============================================= */
+.jump-to-latest-btn {
+  position: absolute;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(32px) saturate(220%) contrast(105%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) contrast(105%);
+  border: none !important;
+  outline: none !important;
+  padding: 8px 16px 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    0 12px 32px -4px rgba(0, 0, 0, 0.12),
+    0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s ease;
+  z-index: 500;
+  animation: appleGlassPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.jump-to-latest-btn:hover {
+  background: rgba(255, 255, 255, 0.65);
+  color: #000000;
+  transform: translateX(-50%) translateY(-2px) scale(1.03);
+  box-shadow:
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.9),
+    0 16px 40px -4px rgba(0, 0, 0, 0.16),
+    0 6px 16px -2px rgba(0, 0, 0, 0.08);
+}
+
+.jump-to-latest-btn:hover .jump-icon {
+  transform: translateY(2px);
+}
+
+.jump-to-latest-btn:active {
+  transform: translateX(-50%) translateY(0px) scale(0.96);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    0 6px 18px -2px rgba(0, 0, 0, 0.1);
+}
+
+.jump-icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.2;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes appleGlassPopIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* Dark Mode Liquid Glass Material Override */
+.dark-mode .jump-to-latest-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(32px) saturate(220%) contrast(105%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(220%) contrast(105%) !important;
+  border: none !important;
+  outline: none !important;
+  color: #f8fafc !important;
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    0 16px 40px -4px rgba(0, 0, 0, 0.65),
+    0 4px 14px -2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .jump-to-latest-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow:
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.35),
+    0 20px 48px -4px rgba(0, 0, 0, 0.75),
+    0 6px 18px -2px rgba(0, 0, 0, 0.5) !important;
+}
+

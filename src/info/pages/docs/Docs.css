@@ -1,0 +1,415 @@
+/* Core Documentation Workspace Layout Stylesheet */
+
+.docs-workspace-container {
+  min-height: 100vh;
+  background-color: #09090a;
+  color: #f4f4f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.docs-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background-color: rgba(9, 9, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.docs-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.docs-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.docs-brand-logo img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.docs-nav-selector {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.docs-nav-selector:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.docs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.docs-search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #191919;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: 220px;
+  height: 36px;
+  box-sizing: border-box;
+  color: #71717a;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.docs-search-bar:hover {
+  background-color: #222222;
+}
+
+.docs-search-bar svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.docs-search-placeholder {
+  font-size: 0.85rem;
+  flex-grow: 1;
+}
+
+.docs-search-shortcut {
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #a1a1aa;
+}
+
+.docs-theme-toggle {
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.docs-theme-toggle:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.docs-theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.docs-console-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+}
+
+.docs-console-btn:hover {
+  opacity: 0.9;
+}
+
+.docs-console-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Two-Column Body Layout */
+.docs-body {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.docs-sidebar {
+  width: 280px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: #09090a;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.docs-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.docs-sidebar-top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-sidebar-section {
+  margin-bottom: 24px;
+}
+
+.docs-sidebar-section-title {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.docs-sidebar-subheading {
+  color: #52525b;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 12px 2px 12px;
+  margin-top: 4px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.docs-sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.docs-sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.docs-sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+}
+
+.docs-sidebar-item.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Sidebar Sub-item Indentation */
+.docs-sidebar-subitem {
+  padding-left: 20px;
+}
+
+.docs-badge {
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.docs-badge.latest {
+  background-color: rgba(153, 27, 27, 0.2);
+  color: #ef4444;
+}
+
+.docs-badge.new {
+  background-color: rgba(153, 27, 27, 0.2);
+  color: #ef4444;
+}
+
+/* Footer Section inside Sidebar Bottom */
+.docs-sidebar-bottom-links {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docs-sidebar-bottom-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.docs-sidebar-bottom-item:hover {
+  color: #ffffff;
+}
+
+.docs-main-content {
+  flex-grow: 1;
+  padding: 48px 24px 48px 48px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #09090a;
+}
+
+.docs-content-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Google Translate Widget Styling */
+.docs-google-translate-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.docs-translate-down-arrow {
+  position: absolute;
+  right: 0;
+  width: 9px;
+  height: 9px;
+  color: #a1a1aa;
+  pointer-events: none;
+  transition: color 0.15s;
+}
+
+.docs-google-translate-wrapper:hover .docs-translate-down-arrow {
+  color: #ffffff;
+}
+
+.docs-google-translate-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.docs-dummy-translate-select {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #a1a1aa !important;
+  border: none !important;
+  padding: 0 14px 0 0 !important;
+  font-size: 13px !important;
+  font-family: ui-sans-serif, system-ui, sans-serif !important;
+  outline: none !important;
+  cursor: pointer !important;
+  width: 95px !important;
+  max-width: 95px !important;
+  text-overflow: ellipsis !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  transition: color 0.15s !important;
+}
+
+.docs-dummy-translate-select:hover {
+  color: #ffffff !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #a1a1aa !important;
+  border: none !important;
+  padding: 0 14px 0 0 !important;
+  font-size: 13px !important;
+  font-family: ui-sans-serif, system-ui, sans-serif !important;
+  outline: none !important;
+  cursor: pointer !important;
+  width: 95px !important;
+  max-width: 95px !important;
+  text-overflow: ellipsis !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  transition: color 0.15s !important;
+}
+
+.goog-te-gadget .goog-te-combo:hover,
+.goog-te-gadget .goog-te-combo:focus,
+.goog-te-gadget .goog-te-combo:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide top translate frame info */
+body {
+  top: 0 !important;
+}
+iframe.goog-te-banner-frame {
+  display: none !important;
+}

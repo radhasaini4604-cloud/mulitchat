@@ -1,0 +1,251 @@
+.lib-list-container {
+  width: 100%;
+  max-width: 679px;
+  margin: 0 auto;
+}
+
+.lib-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.lib-list-table th {
+  padding: 14px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--lib-text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lib-list-row {
+  cursor: pointer;
+}
+
+.lib-list-row td {
+  padding: 14px 16px;
+  font-size: 0.86rem;
+  color: var(--lib-text);
+  border-bottom: none !important;
+  position: relative;
+  z-index: 1;
+}
+
+.lib-list-name-col {
+  font-weight: 350;
+  padding-left: 8px !important;
+}
+
+.lib-list-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lib-list-icon-cell {
+  display: flex;
+  align-items: center;
+}
+
+.lib-list-doc-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--lib-text-muted-more);
+}
+
+.lib-list-doc-icon.pdf { color: #ef4444; }
+.lib-list-doc-icon.text { color: #3b82f6; }
+.lib-list-doc-icon.doc { color: #10b981; }
+
+.lib-list-thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--lib-btn-hover);
+  display: block;
+}
+
+.lib-list-row td::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  background-color: var(--lib-row-hover-bg);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.lib-list-row:hover td::before,
+.lib-list-row.selected td::before {
+  opacity: 1;
+}
+
+.lib-list-row td.lib-list-checkbox-col::before {
+  display: none !important;
+}
+
+.lib-list-row:hover td.lib-list-name-col::before,
+.lib-list-row.selected td.lib-list-name-col::before {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.lib-list-row:hover td:last-child::before,
+.lib-list-row.selected td:last-child::before {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.lib-list-name-text {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 350;
+  font-size: 0.95rem;
+}
+
+.lib-list-source-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.lib-list-source-badge.chat {
+  background-color: var(--lib-btn-hover);
+  color: var(--lib-text);
+}
+
+.lib-list-source-badge.imagine {
+  background-color: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.lib-list-actions-wrapper {
+  position: relative;
+}
+
+.lib-list-actions-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  color: var(--lib-text-muted);
+  outline: none;
+  transition: opacity 0.15s ease, background-color 0.2s, color 0.2s;
+  opacity: 0;
+}
+
+.lib-list-row:hover .lib-list-actions-btn,
+.lib-list-actions-wrapper.active .lib-list-actions-btn {
+  opacity: 1;
+}
+
+.lib-list-actions-btn:hover {
+  background-color: var(--lib-btn-hover);
+  color: var(--lib-text);
+}
+
+.lib-list-dots-svg {
+  width: 16px;
+  height: 16px;
+}
+
+.lib-list-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background-color: var(--lib-bg);
+  border: 1px solid var(--lib-border);
+  border-radius: 12px;
+  padding: 4px;
+  min-width: 120px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 100;
+  animation: libMenuFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lib-list-dropdown button {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--lib-text);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.lib-list-dropdown button:hover {
+  background-color: var(--lib-btn-hover);
+}
+
+.lib-list-dropdown button.delete {
+  color: #ef4444;
+}
+
+.lib-list-dropdown button.delete:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* List Checkbox Styles */
+.lib-list-row.selected {
+  background-color: transparent !important;
+}
+
+.lib-list-checkbox-col {
+  width: 40px;
+  text-align: center;
+  padding-right: 0 !important;
+}
+
+.lib-list-select-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lib-border);
+  background-color: transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lib-list-row:hover .lib-list-select-circle {
+  border-color: var(--lib-text-muted);
+}
+
+.lib-list-select-circle.selected {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.lib-list-type-cell {
+  text-transform: lowercase;
+  color: var(--lib-text-muted);
+  font-weight: 550;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.lib-sort-arrow {
+  color: var(--lib-text);
+  margin-left: 4px;
+}

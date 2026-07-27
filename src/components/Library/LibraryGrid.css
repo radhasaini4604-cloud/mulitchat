@@ -1,0 +1,225 @@
+.lib-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 679px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .lib-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .lib-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lib-grid-card {
+  position: relative;
+  aspect-ratio: 5 / 5;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--lib-border-soft);
+  border-radius: 35px;
+  overflow: hidden;
+  background-color: var(--lib-card-preview-bg);
+}
+
+.lib-grid-preview {
+  width: 100%;
+  height: 100%;
+  background-color: var(--lib-card-preview-bg);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-image-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lib-file-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+  background-color: var(--lib-card-bg);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.lib-grid-file-info {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--lib-text-muted);
+  text-align: center;
+}
+
+.lib-doc-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--lib-text-muted-more);
+}
+
+.lib-doc-icon.pdf { color: #ef4444; }
+.lib-doc-icon.text { color: #3b82f6; }
+.lib-doc-icon.doc { color: #10b981; }
+
+/* Card hover overlay styling */
+.lib-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7), 
+              inset 0 45px 30px -20px rgba(0, 0, 0, 0.6), 
+              inset 0 -45px 30px -20px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.lib-grid-card:hover .lib-card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lib-overlay-details {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.lib-overlay-title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 550;
+  max-width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.lib-overlay-select {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.lib-select-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  transition: background-color 0.2s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.lib-select-circle.selected {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-check-svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.lib-grid-card.selected {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+.lib-grid-card.selected .lib-card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lib-grid-card.selected .lib-overlay-actions-column {
+  display: none !important;
+}
+
+.lib-select-circle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
+.lib-overlay-actions-column {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+}
+
+.lib-overlay-action-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, transform 0.15s ease;
+  outline: none;
+}
+
+.lib-overlay-action-btn:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.lib-overlay-action-btn.delete-btn {
+  color: rgba(239, 68, 68, 0.85);
+}
+
+.lib-overlay-action-btn.delete-btn:hover {
+  color: #ef4444;
+}
+
+.lib-overlay-svg {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}

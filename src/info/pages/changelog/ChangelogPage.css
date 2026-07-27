@@ -1,0 +1,356 @@
+.changelog-page-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: visible;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Ensure window-level scrolling on the Changelog page to make position: sticky fully functional */
+.changelog-page-wrapper .ui-overlay {
+  position: relative !important;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+.changelog-content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 140px 24px 80px 24px;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.changelog-hero {
+  text-align: left;
+  margin-bottom: 72px;
+  opacity: 0;
+  animation: premiumFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.changelog-pretitle {
+  color: #888888;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.changelog-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px 0; /* reduced margin bottom to bring subtitle closer */
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.changelog-hero-subtitle {
+  color: #888888;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0 0 32px 0; /* space before the buttons row */
+  max-width: 650px;
+}
+
+/* Actions Row */
+.changelog-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.changelog-action-btn {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.changelog-action-btn:hover {
+  color: #ffffff;
+}
+
+.action-icon {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.changelog-action-btn:hover .action-icon {
+  opacity: 1;
+}
+
+.changelog-pill-btn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.changelog-pill-btn.primary {
+  background: #ffffff;
+  color: #000000;
+}
+
+.changelog-pill-btn.primary:hover {
+  background: #e5e5e5;
+}
+
+.changelog-pill-btn.outline {
+  background: none;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.changelog-pill-btn.outline:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: #ef4444;
+}
+
+.arrow {
+  font-size: 1rem;
+}
+
+/* Timeline Layout */
+.changelog-timeline-container {
+  position: relative;
+  margin-top: 64px;
+}
+
+.changelog-post {
+  display: grid;
+  grid-template-columns: 120px 2px 1fr;
+  gap: 32px;
+  position: relative;
+}
+
+/* Left Column: Date */
+.changelog-left {
+  text-align: right;
+  padding-top: 10px;
+  position: sticky;
+  top: 96px; /* Stick below the 64px fixed navbar */
+  align-self: start;
+}
+
+.changelog-date-label {
+  color: #888888;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Middle Column: Line and Dot */
+.changelog-middle {
+  position: relative;
+  background: #222222;
+  min-height: 250px;
+}
+
+.changelog-dot {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #555555;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 2px #555555;
+  z-index: 2;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.changelog-post:hover .changelog-dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform: translate(-50%, 0) scale(1.2);
+}
+
+/* Right Column: Content */
+.changelog-right {
+  padding-bottom: 80px;
+  text-align: left;
+}
+
+/* Month Divider Header */
+.changelog-month-header {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 36px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.changelog-post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.changelog-post-title {
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.changelog-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.changelog-version-label {
+  font-size: 0.8rem;
+  color: #555555;
+  font-family: monospace;
+  margin-right: 4px;
+}
+
+/* Category Badge Tags */
+.changelog-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.changelog-intro-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+/* Bullet list */
+.changelog-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.changelog-list-item {
+  position: relative;
+  padding-left: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.changelog-list-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #555555;
+}
+
+.changelog-list-lead {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.changelog-list-dash {
+  color: #555555;
+}
+
+.changelog-list-desc {
+  color: #a3a3a3;
+}
+
+.changelog-list-desc a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px dotted #888888;
+  transition: border-color 0.2s;
+}
+
+.changelog-list-desc a:hover {
+  border-bottom-style: solid;
+  border-color: #ffffff;
+}
+
+/* Copy Toast */
+.changelog-toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: premiumFadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes premiumFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 650px) {
+  .changelog-content {
+    padding-top: 100px;
+  }
+  .changelog-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .changelog-actions {
+    gap: 12px;
+  }
+  .changelog-post {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .changelog-left {
+    text-align: left;
+    padding-top: 0;
+  }
+  .changelog-middle {
+    display: none;
+  }
+  .changelog-right {
+    padding-bottom: 48px;
+    border-bottom: 1px solid #111111;
+  }
+}

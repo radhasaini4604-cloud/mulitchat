@@ -1,0 +1,304 @@
+@import './variable.css';
+
+/* =============================================
+   GLOBAL TEXT SELECTION HIGHLIGHT
+   (Dark mode: White BG / Black Text, Light mode: Inverted)
+   ============================================= */
+
+::selection,
+*::selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+::-moz-selection,
+*::-moz-selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.light-mode ::selection,
+html.light ::selection,
+.light-mode *::selection,
+html.light *::selection {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.light-mode ::-moz-selection,
+html.light ::-moz-selection,
+.light-mode *::-moz-selection,
+html.light *::-moz-selection {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* =============================================
+   UNIVERSAL CUSTOM SLIM GREY SCROLLBAR
+   (Invisible when idle, appears thin grey on scroll/hover)
+   ============================================= */
+
+/* Firefox standard */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+*:hover,
+*.is-scrolling {
+  scrollbar-color: rgba(140, 140, 140, 0.45) transparent;
+}
+
+.dark-mode *:hover,
+.dark-mode *.is-scrolling {
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+/* WebKit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Show thin grey scrollbar thumb on hover or active scrolling */
+*:hover::-webkit-scrollbar-thumb,
+*.is-scrolling::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 140, 0.45);
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.7);
+}
+
+/* Dark mode scrollbar tuning */
+.dark-mode *:hover::-webkit-scrollbar-thumb,
+.dark-mode *.is-scrolling::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.dark-mode *:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+
+body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Twemoji Mozilla", "Segoe UI Emoji", "Noto Color Emoji", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* =============================================
+   GENUINE 100% APPLE iOS/macOS 3D EMOJI STYLING
+   ============================================= */
+img.apple-emoji,
+.apple-emoji {
+  height: 1.25em !important;
+  width: 1.25em !important;
+  margin: 0 0.15em 0.1em 0.15em !important;
+  vertical-align: -0.22em !important;
+  display: inline-block !important;
+  object-fit: contain !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.12)) !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.apple-emoji-wrapper {
+  display: inline !important;
+}
+
+
+.dark-mode,
+.dark-mode body,
+.dark-mode #root {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+
+
+@keyframes typewriterPulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+
+
+/* =============================================
+   DARK MODE TOOLTIPS OVERRIDES
+   ============================================= */
+.dark-mode .selector-tooltip,
+.dark-mode .temp-chat-tooltip,
+.dark-mode .user-action-tooltip,
+.dark-mode .history-tooltip-text,
+.dark-mode .custom-tooltip,
+.dark-mode .pinned-tooltip,
+.dark-mode .header-custom-tooltip {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Override arrows in dark mode */
+.dark-mode .selector-tooltip::after {
+  border-color: #ffffff transparent transparent transparent !important;
+}
+
+.dark-mode .user-action-tooltip::before {
+  border-color: #ffffff transparent transparent transparent !important;
+}
+
+.dark-mode .history-tooltip-text::after {
+  border-color: #ffffff transparent transparent transparent !important;
+}
+
+.dark-mode .custom-tooltip::before {
+  border-color: transparent #ffffff transparent transparent !important;
+}
+
+/* =============================================
+   PREMIUM SMOOTH TOOLTIP ANIMATIONS
+   ============================================= */
+.custom-tooltip,
+.selector-tooltip,
+.temp-chat-tooltip,
+.user-action-tooltip,
+.history-tooltip-text,
+.pinned-tooltip,
+.header-custom-tooltip {
+  scale: 0.95 !important;
+  border-radius: 8px !important;
+  transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+              scale 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-delay: 0s !important;
+}
+
+/* Override default translations to match hover states (making them stationary) */
+.custom-tooltip {
+  transform: translateY(-50%) translateX(0) !important;
+}
+.selector-tooltip {
+  transform: translateX(-50%) translateY(0) !important;
+}
+.temp-chat-tooltip {
+  transform: translateY(0) !important;
+}
+.user-action-tooltip {
+  transform: translateX(-50%) translateY(-6px) !important;
+}
+.history-tooltip-text {
+  transform: translateX(-50%) !important;
+}
+.pinned-tooltip {
+  transform: translateY(0) !important;
+}
+
+/* Remove tooltip arrows completely */
+.custom-tooltip::before,
+.selector-tooltip::after,
+.user-action-tooltip::before,
+.history-tooltip-text::after,
+.pinned-tooltip::after,
+.pinned-tooltip-arrow {
+  display: none !important;
+}
+
+/* Hover selectors to scale-in tooltips */
+.sidebar.collapsed .menu-item:hover .custom-tooltip,
+.sidebar.collapsed .profile-btn:hover .custom-tooltip,
+.sidebar.collapsed .sidebar-brand:hover .custom-tooltip,
+.settings-btn:hover .custom-tooltip,
+.toggle-btn:hover .custom-tooltip,
+.model-selector-container:hover .selector-tooltip,
+.temp-chat-toggle-btn:hover .temp-chat-tooltip,
+.user-action-btn-wrapper:hover .user-action-tooltip,
+.history-tooltip-trigger:hover .history-tooltip-text,
+.pinned-dot-container:hover .pinned-tooltip {
+  scale: 1 !important;
+}
+
+/* =============================================
+   GLOBAL RESPONSIVE SCALING FOR LARGE MONITORS (24" AND LARGER)
+   ============================================= */
+
+@media (min-width: 1400px) {
+  /* Target all primary page and feature grid containers */
+  .container,
+  .wrapper,
+  .scroll-wrapper,
+  .about-wrapper,
+  .pricing-wrapper,
+  .careers-wrapper,
+  .contact-wrapper,
+  .docs-wrapper,
+  .changelog-wrapper,
+  .legal-wrapper,
+  .mission-wrapper,
+  .partners-wrapper,
+  .support-wrapper,
+  .alignment-wrapper,
+  .globe-section-wrapper {
+    max-width: 1450px !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container,
+  .wrapper,
+  .scroll-wrapper,
+  .about-wrapper,
+  .pricing-wrapper,
+  .careers-wrapper,
+  .contact-wrapper,
+  .docs-wrapper,
+  .changelog-wrapper,
+  .legal-wrapper,
+  .mission-wrapper,
+  .partners-wrapper,
+  .support-wrapper,
+  .alignment-wrapper,
+  .globe-section-wrapper {
+    max-width: 1650px !important;
+  }
+}
+
+
+
+
+

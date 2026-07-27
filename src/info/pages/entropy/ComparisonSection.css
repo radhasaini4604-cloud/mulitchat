@@ -1,0 +1,82 @@
+.comparison-section-container {
+  margin-top: 80px;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.graphs-comparison-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.graph-comparison-card {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 16px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+  align-items: center;
+}
+
+.card-title-clean {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.card-subtitle-sub {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem;
+  color: #86868b;
+}
+
+.comparison-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.comparison-svg circle {
+  transition: r 0.15s ease;
+}
+
+.comparison-svg circle:hover {
+  r: 4px;
+  cursor: pointer;
+}
+
+.spec-comparison-table {
+  margin-top: 32px;
+}
+
+.spec-comparison-table td {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 14px 16px;
+}
+
+.spec-comparison-table th {
+  padding: 14px 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .graphs-comparison-row {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,158 @@
+/* Section 5: Support CTA Ending Section */
+.support-cta-section {
+  width: 100%;
+  max-width: 1150px;
+  margin: 120px auto 40px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background Ambient Glow */
+.support-cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(50px);
+}
+
+.support-cta-card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(18, 18, 20, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 56px 40px;
+  box-sizing: border-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.support-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 10%, rgba(255, 255, 255, 0.15) 50%, transparent 90%);
+}
+
+.cta-title {
+  font-size: 2.2rem;
+  font-family: Sebenta, "Sebenta Fallback: Georgia", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.cta-title span {
+  background: linear-gradient(to right, #ffffff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  max-width: 580px;
+  margin: 0 auto 36px auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Primary Button: Solid white high-contrast */
+.cta-btn.btn-primary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+
+.cta-btn.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button: Subtle borderless link style */
+.cta-btn.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: #ffffff;
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+}
+
+.cta-btn.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Tertiary Button: Ghost link style */
+.cta-btn.btn-tertiary {
+  background-color: transparent;
+  color: #a1a1aa;
+  border: 1px solid transparent;
+  padding: 12px 16px;
+}
+
+.cta-btn.btn-tertiary:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .support-cta-card {
+    padding: 40px 24px;
+  }
+  .cta-title {
+    font-size: 1.8rem;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .cta-btn {
+    width: 100%;
+  }
+}

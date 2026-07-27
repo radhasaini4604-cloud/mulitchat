@@ -1,0 +1,196 @@
+/* PeopleCard Component Styles */
+.submodal-search-wrapper.header-search {
+  flex: 1;
+  max-width: 180px;
+  position: relative;
+  margin: 0 12px;
+}
+
+.submodal-search-input {
+  width: 100%;
+  background: var(--groupchat-item-bg, #f1f5f9);
+  border: none;
+  border-radius: 99px;
+  padding: 6px 28px 6px 12px;
+  font-size: 13px;
+  color: var(--groupchat-text);
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.dark-mode .submodal-search-input {
+  background: #1a1a1a;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--groupchat-text-muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fixed height feed for exactly 5 member rows */
+.submodal-members-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.submodal-member-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  height: 44px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: background-color 0.15s;
+}
+
+.submodal-member-row:hover {
+  background: var(--groupchat-item-hover-bg, #f8fafc);
+}
+
+.dark-mode .submodal-member-row:hover {
+  background: #1a1a1a;
+}
+
+.submodal-member-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Neutral monochrome avatar circle (No Blue) */
+.submodal-member-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--groupchat-text, #1f1f1f);
+  color: var(--groupchat-bg, #ffffff);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark-mode .submodal-member-avatar {
+  background: #ffffff;
+  color: #000000;
+}
+
+.submodal-member-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--groupchat-text);
+}
+
+.submodal-member-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.submodal-badges-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Neutral badge chips (No Blue) */
+.badge-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge-chip.admin {
+  background: var(--groupchat-item-hover-bg, #e2e8f0);
+  color: var(--groupchat-text);
+  border: none;
+}
+
+.dark-mode .badge-chip.admin {
+  background: #262626;
+  color: #ffffff;
+}
+
+.badge-chip.member {
+  background: var(--groupchat-item-bg, #f1f5f9);
+  color: var(--groupchat-text-muted);
+}
+
+.dark-mode .badge-chip.member {
+  background: #2b2b2b;
+  color: #9aa0a6;
+}
+
+.typing-chip {
+  font-size: 11px;
+  color: var(--groupchat-text-muted);
+  font-style: italic;
+}
+
+.submodal-member-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.submodal-coadmin-icon-btn, .submodal-kick-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--groupchat-text-muted);
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.submodal-coadmin-icon-btn:hover, .submodal-kick-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--groupchat-text);
+}
+
+.dark-mode .submodal-coadmin-icon-btn:hover, .dark-mode .submodal-kick-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submodal-coadmin-icon-btn.active {
+  color: var(--groupchat-text);
+}
+
+.submodal-kick-icon-btn:hover {
+  color: #ef4444;
+}
+
+.submodal-empty-search-state {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+  color: var(--groupchat-text-muted);
+  font-style: italic;
+}

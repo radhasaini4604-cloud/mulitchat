@@ -1,0 +1,248 @@
+.docs-faq-layout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.docs-faq-main-content {
+  flex-grow: 1;
+  max-width: 800px;
+  text-align: left;
+}
+
+.docs-faq-category {
+  color: #71717a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-faq-main-content .docs-faq-title {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em !important;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.docs-faq-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.docs-faq-action-link {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.docs-faq-action-link:hover {
+  color: #ffffff;
+}
+
+.docs-faq-action-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.docs-faq-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 16px 0 32px 0;
+}
+
+/* Accordion Styling */
+.docs-faq-accordion-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 56px;
+}
+
+.docs-faq-accordion-item {
+  background-color: #191919;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+
+.docs-faq-accordion-item:hover {
+  background-color: #1e1e1f;
+}
+
+.docs-faq-accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1.05rem;
+  font-weight: 550;
+  text-align: left;
+}
+
+.docs-faq-accordion-arrow {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.docs-faq-accordion-header:hover .docs-faq-accordion-arrow {
+  color: #ffffff;
+}
+
+.docs-faq-accordion-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.docs-faq-accordion-content-wrapper {
+  overflow: hidden;
+  transition: height 0.2s ease-out;
+}
+
+.docs-faq-accordion-content {
+  padding: 0 24px 20px 24px;
+  color: #a1a1aa;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Related Documentation footer list */
+.docs-faq-related-section {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.docs-faq-related-title {
+  color: #71717a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-faq-related-link-item {
+  color: #ef4444; /* red accent */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.docs-faq-related-link-item:hover {
+  color: #f87171;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.docs-faq-related-dot {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.docs-faq-footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-top: 64px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+.docs-faq-last-updated {
+  color: #52525b;
+  font-size: 0.82rem;
+  margin-bottom: 48px;
+}
+
+/* Right Sidebar Styling */
+.docs-faq-right-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 32px;
+  height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .docs-faq-layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .docs-faq-right-sidebar {
+    display: none;
+  }
+}
+
+.docs-faq-rt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.docs-faq-rt-list-icon {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+}
+
+.docs-faq-rt-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docs-faq-rt-link {
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  transition: color 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  text-align: left;
+}
+
+.docs-faq-rt-link:hover {
+  color: #ffffff;
+}
+
+.docs-faq-rt-link.active {
+  color: #a1a1aa;
+}

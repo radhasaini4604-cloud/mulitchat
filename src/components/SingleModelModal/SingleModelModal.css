@@ -1,0 +1,270 @@
+.single-model-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  animation: singleModelFadeIn 0.2s ease-out;
+}
+
+.dark-mode .single-model-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.single-model-modal-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  animation: singleModelScaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark-mode .single-model-modal-container {
+  background-color: #212121 !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+.single-model-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.single-model-close-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.dark-mode .single-model-close-btn:hover {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+.single-model-close-btn .close-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.single-model-modal-header {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-right: 32px;
+}
+
+.single-model-modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark-mode .single-model-modal-header h2 {
+  color: #f4f4f5 !important;
+}
+
+.single-model-modal-header p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark-mode .single-model-modal-header p {
+  color: #a1a1aa !important;
+}
+
+.single-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Custom Scrollbar for list */
+.single-model-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.single-model-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.single-model-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.dark-mode .single-model-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.single-model-row-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark-mode .single-model-row-item {
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.single-model-row-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark-mode .single-model-row-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.single-model-row-item.selected {
+  border-color: var(--accent, #3b82f6);
+  background-color: rgba(59, 130, 246, 0.04);
+}
+
+.dark-mode .single-model-row-item.selected {
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+.model-logo-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.dark-mode .model-logo-wrapper {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.model-logo-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.model-info-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.model-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.model-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark-mode .model-name {
+  color: #f4f4f5 !important;
+}
+
+.model-provider {
+  font-size: 10.5px;
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark-mode .model-provider {
+  color: #71717a !important;
+}
+
+.active-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.model-description {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dark-mode .model-description {
+  color: #a1a1aa !important;
+}
+
+.model-badge-wrapper {
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.model-pill-badge {
+  font-size: 10.5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #475569;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.dark-mode .model-pill-badge {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa !important;
+}
+
+/* Animations */
+@keyframes singleModelFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes singleModelScaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

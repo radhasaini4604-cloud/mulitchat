@@ -1,0 +1,400 @@
+/* API Configuration Guide Page Styles */
+
+.api-guide-page-wrapper {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: #09090a;
+  color: #f4f4f5;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.api-guide-glow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.api-glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+}
+
+.api-glow-1 {
+  top: -10%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+}
+
+.api-glow-2 {
+  top: 20%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+}
+
+.api-glow-3 {
+  bottom: 10%;
+  left: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+}
+
+.ui-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.api-guide-content-wide {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 32px 80px 32px;
+  box-sizing: border-box;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.api-guide-hero {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.api-guide-meta {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: translateY(15px);
+  animation: heroFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.05s;
+}
+
+.api-guide-title {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 3.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.api-guide-lead {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: heroFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.35s;
+}
+
+.api-guide-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 48px;
+}
+
+/* Split Section Grid */
+.api-guide-split-section {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  text-align: left;
+  align-items: start;
+}
+
+/* Left Sidebar Navigation */
+.api-guide-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+
+.api-guide-toc-heading {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.api-guide-toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.api-guide-toc-item {
+  font-size: 13px;
+  color: #71717a;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding: 4px 0 4px 12px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.api-guide-toc-item:hover {
+  color: #ffffff;
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.api-guide-toc-item.active {
+  color: #ffffff;
+  border-left-color: #ffffff;
+  font-weight: 600;
+}
+
+/* Right Main Column */
+.api-guide-main-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.api-guide-text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-margin-top: 100px;
+}
+
+.api-guide-section-heading {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.api-guide-paragraph {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+.api-guide-inner-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 12px 0;
+}
+
+/* Bullets styling */
+.api-guide-bullets {
+  list-style: none;
+  padding: 0 0 0 4px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.api-guide-bullet-item {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a1a1aa;
+  position: relative;
+  padding-left: 20px;
+}
+
+.api-guide-bullet-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Callout Box */
+.api-guide-callout-box {
+  margin-top: 8px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid #ffffff;
+}
+
+.api-guide-callout-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.api-guide-callout-text {
+  font-size: 0.95rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.api-guide-subsection-heading {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 20px 0 8px 0;
+}
+
+.api-guide-provider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.api-guide-portal-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.api-guide-portal-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.api-guide-steps-list {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.api-guide-steps-list li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a1a1aa;
+  padding-left: 4px;
+}
+
+.api-guide-steps-list li strong {
+  color: #ffffff;
+}
+
+.api-guide-steps-list code {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 85%;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Responsive constraints */
+@media (max-width: 868px) {
+  .api-guide-split-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .api-guide-sidebar {
+    position: static;
+  }
+
+  .api-guide-toc-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 16px;
+  }
+
+  .api-guide-toc-item {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    padding: 4px 0;
+  }
+
+  .api-guide-toc-item.active {
+    border-bottom-color: #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .api-guide-content-wide {
+    padding-top: 100px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .api-guide-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Premium Word Reveals & Spacing Animation Definitions */
+.hero-title-word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero-title-word {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  display: inline-block;
+  transform: translateY(105%);
+  animation: heroWordReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroWordReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

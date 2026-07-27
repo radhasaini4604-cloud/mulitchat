@@ -1,0 +1,37 @@
+gemini
+model: gemini-2.5-flash
+api: AQ.Ab8RN6K_T5ABmH7rHu1qjX5xvrxquU9jWeCtB-t3f2W1syTjpA
+
+groq
+model: openai/gpt-oss-120b
+model: qwen/qwen3.6-27b
+api: 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
+
+for auto horizon 
+groq --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
+
+nemotron
+model: @cf/nvidia/nemotron-3-120b-a12b
+api: cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1
+
+imagine (cloudflare)
+model: @cf/black-forest-labs/flux-1-schnell
+model: @cf/black-forest-labs/flux-2-klein-4b
+model: @cf/black-forest-labs/flux-2-dev
+api: cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1
+
+imagine (nvidia)
+model: black-forest-labs/flux.2-klein-4b
+api: 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
+
+mistral
+model: mistral-large-2407
+api: FK0P9RwbNwJ64WbVVKdtZHKV38JKlfpi
+
+cohere
+model: command-r-plus-08-2024
+api: a2MyL0uO4uw8pb8ubcWkBSTnOBwJr8Ii6JlqXSB9
+
+supabase
+url: https://brexbjzafthtnonhxdia.supabase.co
+anon_key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyZXhianphZnRodG5vbmh4ZGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMTYyMTUsImV4cCI6MjA5Nzc5MjIxNX0.M7A6va09YUxM1EoUzQi1Wd2JJEy_dqw6orZ_S7XD4TQ

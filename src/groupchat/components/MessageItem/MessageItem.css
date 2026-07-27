@@ -1,0 +1,316 @@
+/* Group Container for Message Pairs */
+.collab-message-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Chat Row base (WhatsApp Style) */
+.collab-chat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Own messages (right aligned) */
+.collab-chat-row.row-own {
+  justify-content: flex-end;
+}
+
+/* Other users (left aligned) */
+.collab-chat-row.row-other {
+  justify-content: flex-start;
+}
+
+/* AI Responses (left aligned but indented by 42px to align text perfectly with user bubble) */
+.collab-chat-row.row-assistant {
+  justify-content: flex-start;
+  padding-left: 36px;
+}
+
+/* Avatar circle for humans */
+.collab-chat-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Bubble Container holding header and bubble content */
+.collab-chat-bubble-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  gap: 4px;
+}
+
+/* Own messages bubble container doesn't need name margins */
+.row-own .collab-chat-bubble-container {
+  align-items: flex-end;
+}
+
+/* Other users bubble container */
+.row-other .collab-chat-bubble-container {
+  align-items: flex-start;
+}
+
+.row-assistant .collab-chat-bubble-container {
+  max-width: 100%;
+}
+
+/* Sender header for assistant/model information */
+.collab-chat-sender-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+/* Model logo container next to the model name */
+.collab-chat-model-circle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.collab-chat-model-circle svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Sender Name text style */
+.collab-chat-sender-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a1a1aa !important;
+}
+
+/* Standard chat bubble style matching the screenshot */
+.collab-chat-bubble {
+  padding: 7px 14px;
+  border-radius: 18px;
+  width: fit-content;
+  max-width: 100%;
+  font-size: 14.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #27272a;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Light mode bubble backgrounds override */
+@media (prefers-color-scheme: light) {
+  .collab-chat-bubble {
+    background: #f4f4f5;
+    color: #18181b;
+  }
+}
+
+/* Dark mode specific theme class override */
+.dark-mode .collab-chat-bubble {
+  background: #27272a;
+  color: #ffffff;
+}
+
+/* If app has general light-mode overrides */
+body:not(.dark-mode) .collab-chat-bubble {
+  background: #f4f4f5;
+  color: #18181b;
+}
+
+/* AI Plain text responses (No bubble background, no borders) */
+.collab-chat-plain-response {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 2px 0 0 0 !important;
+  color: #18181b; /* Dark text by default (light mode) */
+  font-size: 16.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.dark-mode .collab-chat-plain-response,
+body.dark-mode .collab-chat-plain-response {
+  color: #e3e3e3; /* Bright silver/grey text in dark mode */
+}
+
+.collab-chat-plain-response .assistant-markdown-content,
+.collab-chat-plain-response .assistant-markdown-content p,
+.collab-chat-plain-response .assistant-markdown-content h1,
+.collab-chat-plain-response .assistant-markdown-content h2,
+.collab-chat-plain-response .assistant-markdown-content h3,
+.collab-chat-plain-response .assistant-markdown-content h4,
+.collab-chat-plain-response .assistant-markdown-content li {
+  color: inherit;
+}
+
+/* Chat text typography */
+.collab-chat-text {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Streaming state opacity */
+.collab-chat-plain-response.streaming p {
+  opacity: 0.7;
+}
+
+/* Own message bubble overrides to use dynamic theme accent color */
+.row-own .collab-chat-bubble {
+  background: var(--accent, var(--meet-blue, #1a73e8)) !important;
+  color: var(--accent-text, #ffffff) !important;
+}
+
+/* Message actions toolbar container */
+.message-actions-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Individual action button */
+.msg-action-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  color: #888888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.msg-action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #333333;
+}
+
+.msg-action-btn.liked,
+.msg-action-btn.disliked,
+.msg-action-btn.copied {
+  color: #000000 !important;
+}
+
+.msg-action-btn.playing-tts {
+  color: var(--accent, #3b82f6) !important;
+}
+
+.msg-action-btn svg {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease;
+}
+
+.msg-action-btn:hover svg {
+  transform: scale(1.15);
+}
+
+/* Dark mode specific styles */
+.dark-mode .msg-action-btn {
+  color: #a1a1aa;
+}
+
+.dark-mode .msg-action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.dark-mode .msg-action-btn.liked,
+.dark-mode .msg-action-btn.disliked,
+.dark-mode .msg-action-btn.copied {
+  color: #ffffff !important;
+}
+
+.dark-mode .msg-action-btn.playing-tts {
+  color: var(--accent, #3b82f6) !important;
+}
+
+/* =============================================
+   REPLY QUOTE BLOCK (WhatsApp-style inside bubble)
+   ============================================= */
+.reply-quote-block {
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.reply-quote-accent {
+  width: 3px;
+  min-height: 100%;
+  border-radius: 2px;
+  background: #1e293b;
+  flex-shrink: 0;
+}
+
+.reply-quote-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.reply-quote-sender {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.reply-quote-text {
+  font-size: 11.5px;
+  color: rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 350px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Own message reply quote (accent-colored bubble → white text) */
+.row-own .reply-quote-block {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.row-own .reply-quote-accent {
+  background: #ffffff;
+}
+
+.row-own .reply-quote-sender {
+  color: #ffffff;
+}
+
+.row-own .reply-quote-text {
+  color: rgba(255, 255, 255, 0.7);
+}

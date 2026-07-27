@@ -1,0 +1,172 @@
+/* ContactForm.css */
+
+.premium-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: white;
+  width: 100%;
+  margin-top: 20px; /* Space for the label to float up without overlapping */
+}
+
+.input-label {
+  font-size: 0.9rem;
+  padding-left: 18px;
+  position: absolute;
+  top: 14px;
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  color: #a1a1aa;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), -1px -1px 6px rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              -1px -1px 6px rgba(255, 255, 255, 0.12), 
+              inset 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              inset -1px -1px 6px rgba(255, 255, 255, 0.12);
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+/* Floating Label Animation when focused or text is entered */
+.input-group input:focus ~ .input-label,
+.input-group input:not(:placeholder-shown) ~ .input-label,
+.input-group textarea:focus ~ .input-label,
+.input-group textarea:not(:placeholder-shown) ~ .input-label {
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-left: 4px;
+  transform: translate(2px, -30px);
+  letter-spacing: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Keeps the pressed inset 3D style when input has contents */
+.input-group input:not(:placeholder-shown),
+.input-group textarea:not(:placeholder-shown) {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              -1px -1px 6px rgba(255, 255, 255, 0.12), 
+              inset 3px 3px 10px rgba(0, 0, 0, 0.95), 
+              inset -1px -1px 6px rgba(255, 255, 255, 0.12);
+}
+
+.submit-button {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.submit-button:hover {
+  background: #f4f4f5;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  background: #71717a;
+  color: #d4d4d8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-error-banner {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 10px;
+  padding: 12px;
+  color: #f87171;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+/* Success State styles */
+.contact-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.success-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.contact-success-state h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.contact-success-state p {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 0 24px 0;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}

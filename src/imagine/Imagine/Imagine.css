@@ -1,0 +1,980 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Imagine Section styling - Professional Light Mode */
+
+.imagine-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #ffffff;
+  color: #0f172a;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.imagine-scrollable-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 48px 140px 48px; /* Bottom padding to ensure it scrolls past the sticky input box */
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+/* Scrollbar styling for main container */
+.imagine-scrollable-container::-webkit-scrollbar {
+  width: 8px;
+}
+.imagine-scrollable-container::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+.imagine-scrollable-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.imagine-scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hero Header */
+.imagine-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 20px auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.imagine-title {
+  font-family: Sebenta, "Sebenta Fallback: Georgia", Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px 0;
+  color: #0f172a;
+}
+
+.imagine-subtitle {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* Sections */
+.imagine-section {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.imagine-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.imagine-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.section-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.scroll-arrow {
+  width: 14px;
+  height: 14px;
+}
+
+.section-subtext {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+
+
+
+
+/* Floating Notification */
+.imagine-notification {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  z-index: 999;
+  font-size: 0.8rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.notification-icon {
+  width: 14px;
+  height: 14px;
+  color: #10b981;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Navigation Tabs */
+.imagine-navigation-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 0 auto 30px auto;
+  justify-content: center;
+  max-width: 800px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-tab-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.nav-tab-btn:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-tab-btn.active {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+/* Workspace Mode Layout */
+.imagine-workspace-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Fixes positioning/width issues inside the main flex wrapper */
+  min-width: 0;
+  height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagine-workspace-header {
+  display: flex;
+  justify-content: center; /* Center the title section */
+  align-items: center;
+  padding: 20px 32px; /* Adjusted padding to space title from the border */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05); /* Soft semi-transparent separator border */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 10px 15px -3px rgba(0, 0, 0, 0.03),
+    0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  position: relative;
+}
+
+.workspace-title-section {
+  text-align: center;
+}
+
+.workspace-title-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+  text-align: center;
+}
+
+.workspace-title-section p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+  text-align: center;
+}
+
+.workspace-back-btn {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  .imagine-workspace-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 16px 8px 16px;
+  }
+  .workspace-back-btn {
+    position: static;
+    transform: none;
+  }
+}
+
+.workspace-back-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.imagine-workspace-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 32px 140px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 3-Column Workspace Grid */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .workspace-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+/* Page Background Blobs (Canva header style) */
+.page-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7; /* Good visibility for light pastel blobs */
+}
+
+.page-bg-blob-blue {
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.85) 0%, rgba(96, 165, 250, 0.15) 70%, transparent 100%);
+  top: -120px;
+  left: 5%;
+}
+
+.page-bg-blob-skin {
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.85) 0%, rgba(253, 186, 116, 0.15) 70%, transparent 100%);
+  top: -120px;
+  left: 35%;
+}
+
+.page-bg-blob-purple {
+  background: radial-gradient(circle, rgba(216, 180, 254, 0.85) 0%, rgba(167, 139, 250, 0.15) 70%, transparent 100%);
+  top: -120px;
+  right: 5%;
+}
+
+.page-bg-blob-pink {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.85) 0%, rgba(236, 72, 153, 0.15) 70%, transparent 100%);
+  top: -120px;
+  right: 15%;
+}
+
+
+
+/* Image Editor Modal Overlay */
+.imagine-editor-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom Back Button for Editor */
+.imagine-editor-back-btn {
+  position: absolute !important;
+  top: 10px !important;
+  right: 12px !important;
+  left: auto !important;
+  z-index: 1000000 !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 6px 14px !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  height: 32px !important;
+  box-sizing: border-box !important;
+}
+
+.imagine-editor-back-btn:hover {
+  background: #f8fafc !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+.imagine-editor-back-btn:active {
+  transform: translateY(1px) !important;
+}
+
+/* Custom border radius inside Filerobot Editor */
+.FIE_container,
+[class*="FIE_container"],
+.Fie-Modal,
+.SfxModal-Wrapper {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+/* Hide default Filerobot Close and Back Buttons */
+.FIE_buttons-close-btn,
+.FIE_topbar-close-button,
+[class*="FIE_buttons-close-btn"],
+[class*="FIE_topbar-close-button"],
+button[aria-label="Close"],
+button[title="Close"],
+.FIE_buttons-back-btn,
+.FIE_back-button,
+button[aria-label="Back"],
+button[title="Back"] {
+  display: none !important;
+}
+
+/* Custom Undo Icon replacement in Filerobot */
+button[aria-label="Undo"] svg,
+button[title="Undo"] svg,
+.FIE_undo-button svg,
+[class*="undo-button"] svg {
+  display: none !important;
+}
+
+button[aria-label="Undo"]::before,
+button[title="Undo"]::before,
+.FIE_undo-button::before,
+[class*="undo-button"]::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 14 4 9l5-5'/><path d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 14 4 9l5-5'/><path d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/></svg>");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Custom Redo Icon replacement in Filerobot */
+button[aria-label="Redo"] svg,
+button[title="Redo"] svg,
+.FIE_redo-button svg,
+[class*="redo-button"] svg {
+  display: none !important;
+}
+
+button[aria-label="Redo"]::before,
+button[title="Redo"]::before,
+.FIE_redo-button::before,
+[class*="redo-button"]::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m15 14 5-5-5-5'/><path d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m15 14 5-5-5-5'/><path d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/></svg>");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Shift undo/redo buttons to the left to avoid overlap with the Back button */
+[data-testid="FIE-topbar-control-buttons"],
+.FIE_topbar-control-buttons,
+[class*="FIE_topbar-control-buttons"] {
+  margin-right: 90px !important;
+}
+
+/* Enable native horizontal scrolling on all Filerobot carousels (filters, watermarks, etc.) */
+[class*="FIE_"][class*="-wrapper"],
+.FIE_filters-wrapper {
+  touch-action: pan-x pan-y pinch-zoom !important;
+}
+
+[class*="FIE_"][class*="-items"],
+.FIE_filters-items,
+.FIE_filters ul,
+[class*="FIE_filters"] ul {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  -ms-overflow-style: none !important;  /* IE/Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+/* Hide scrollbars but keep scrolling active */
+[class*="FIE_"][class*="-items"]::-webkit-scrollbar,
+.FIE_filters-items::-webkit-scrollbar,
+.FIE_filters ul::-webkit-scrollbar,
+[class*="FIE_filters"] ul::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Workspace Lightbox Modal (Custom Mockup UI) */
+.workspace-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #f8fafc;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.workspace-lightbox-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  height: 64px;
+  box-sizing: border-box;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 10px 15px -3px rgba(0, 0, 0, 0.03),
+    0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.lightbox-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lightbox-close-btn {
+  background: transparent;
+  border: none;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.lightbox-close-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.lightbox-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lightbox-prompt-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.lightbox-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightbox-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lightbox-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.lightbox-btn-secondary svg.btn-icon {
+  width: 16px;
+  height: 16px;
+  color: #475569;
+}
+
+.lightbox-btn-secondary svg.caret-icon {
+  width: 14px;
+  height: 14px;
+  color: #64748b;
+  margin-left: 2px;
+}
+
+.lightbox-btn-primary {
+  display: flex;
+  align-items: center;
+  background: #0f172a;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.lightbox-btn-primary:hover {
+  background: #1e293b;
+}
+
+.lightbox-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #475569;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lightbox-btn-icon:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.lightbox-btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.workspace-lightbox-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.workspace-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.04), 
+    0 30px 60px rgba(0, 0, 0, 0.08), 
+    0 50px 100px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Ensure feedback modal is rendered on top of the lightbox preview */
+.feedback-modal-overlay {
+  z-index: 100000 !important;
+}
+
+/* ─── Comment Modal ───────────────────────────────────────────────── */
+.comment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 110000;
+  animation: fadeInOverlay 0.2s ease;
+}
+
+.comment-modal-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  width: 480px;
+  max-width: 94vw;
+  box-shadow:
+    0 8px 40px rgba(15, 23, 42, 0.18),
+    0 2px 12px rgba(15, 23, 42, 0.10);
+  animation: popIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.comment-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.comment-modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.comment-modal-hint {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.comment-modal-textarea {
+  width: 100%;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  background: #f8fafc;
+  resize: vertical;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  min-height: 120px;
+}
+.comment-modal-textarea:focus {
+  border-color: #6366f1;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+.comment-modal-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.comment-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.comment-modal-cancel {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.comment-modal-cancel:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.comment-modal-submit {
+  background: #0f172a;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.comment-modal-submit:hover:not(:disabled) {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+.comment-modal-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Workspace Card Hover Summary Overlay */
+.workspace-image-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 50%, transparent 100%);
+  opacity: 1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.workspace-hover-summary {
+  position: absolute;
+  bottom: 18px;
+  left: 16px;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: #ffffff;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Dark Mode Overrides for Imagine Layout */
+.dark-mode .imagine-layout {
+  background-color: #000000 !important;
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .imagine-scrollable-container {
+  background-color: #000000 !important;
+}
+
+.dark-mode .imagine-scrollable-container::-webkit-scrollbar-track {
+  background: #000000 !important;
+}
+
+.dark-mode .imagine-scrollable-container::-webkit-scrollbar-thumb {
+  background: #1e1e1e !important;
+}
+
+.dark-mode .imagine-title {
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .imagine-subtitle {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .imagine-section-title {
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .section-scroll-hint,
+.dark-mode .section-subtext {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .scroll-placeholder {
+  background: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #a1a1aa !important;
+}
+
+.dark-mode .featured-card {
+  background: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .featured-card:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .masonry-card {
+  background: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .masonry-card:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .imagine-notification {
+  background: #212121 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #f4f4f5 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode .imagine-navigation-tabs {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .nav-tab-btn {
+  color: #a1a1aa !important;
+}
+
+.dark-mode .nav-tab-btn:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .nav-tab-btn.active {
+  color: #ffffff !important;
+  background: #1e1e1e !important;
+}
+
+/* Workspace View overrides */
+.dark-mode .imagine-workspace-container {
+  background-color: #000000 !important;
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .imagine-workspace-header {
+  background: rgba(24, 24, 27, 0.8) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .workspace-title-section h2 {
+  color: #f4f4f5 !important;
+}
+
+.dark-mode .workspace-title-section p {
+  color: #a1a1aa !important;
+}
+
+
+
+.dark-mode .page-bg-blob {
+  opacity: 1 !important;
+}
+
+.dark-mode .page-bg-blob-blue {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 85%) !important;
+  width: 800px !important;
+  height: 400px !important;
+  top: -160px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  filter: blur(85px) !important;
+}
+
+.dark-mode .page-bg-blob-skin,
+.dark-mode .page-bg-blob-purple,
+.dark-mode .page-bg-blob-pink {
+  display: none !important;
+}
+
+.dark-mode .imagine-editor-back-btn {
+  background: #212121 !important;
+  color: #f4f4f5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .imagine-editor-back-btn:hover {
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+
+
+

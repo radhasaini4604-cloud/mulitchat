@@ -1,0 +1,451 @@
+.docs-ig-layout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.docs-ig-main-content {
+  flex-grow: 1;
+  max-width: 800px;
+  text-align: left;
+}
+
+.docs-ig-category {
+  color: #71717a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-ig-main-content .docs-ig-title {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em !important;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.docs-ig-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.docs-ig-action-link {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.docs-ig-action-link:hover {
+  color: #ffffff;
+}
+
+.docs-ig-action-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.docs-ig-actions-separator {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+/* CTA Row styling */
+.docs-ig-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  margin-bottom: 28px;
+}
+
+.docs-ig-btn-primary {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.docs-ig-btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.docs-ig-btn-secondary {
+  background: none;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.docs-ig-btn-secondary:hover {
+  background-color: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.45);
+  transform: translateY(-1px);
+}
+
+.docs-ig-btn-arrow {
+  transition: transform 0.2s;
+}
+
+.docs-ig-btn-secondary:hover .docs-ig-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+.docs-ig-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 0 0 40px 0;
+}
+
+/* Sections Styling */
+.docs-ig-section-block {
+  margin-bottom: 64px;
+}
+
+.docs-ig-section-heading {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 1.8rem;
+  font-weight: 450;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em !important;
+}
+
+.docs-ig-section-intro {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+/* Limits Flat List Styling */
+.docs-ig-limits-flat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 24px;
+  max-width: 100%;
+}
+
+.docs-ig-flat-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 24px;
+}
+
+.docs-ig-flat-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.docs-ig-flat-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.docs-ig-flat-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.docs-ig-flat-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 220px;
+}
+
+.docs-ig-flat-title {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+}
+
+.docs-ig-flat-badge {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #ef4444; /* red accent */
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.docs-ig-flat-details {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docs-ig-flat-details li {
+  color: #71717a;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 14px;
+  text-align: left;
+}
+
+.docs-ig-flat-details li::before {
+  content: "•";
+  color: #3f3f46;
+  position: absolute;
+  left: 0;
+}
+
+.docs-ig-flat-details li strong {
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+/* Next Steps block layout styling */
+.docs-ig-next-steps {
+  margin-top: 56px;
+  padding: 24px;
+  background-color: #191919;
+  border-radius: 12px;
+  border: none;
+}
+
+.docs-ig-next-steps-heading {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 1.4rem;
+  font-weight: 450;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em !important;
+}
+
+.docs-ig-next-steps-desc {
+  color: #a1a1aa;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.docs-ig-next-steps-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.docs-ig-next-link-item {
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: border-color 0.2s, background-color 0.2s;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-width: 220px;
+}
+
+.docs-ig-next-link-item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.docs-ig-next-link-arrow {
+  color: #ef4444;
+  transition: transform 0.2s;
+  font-weight: bold;
+}
+
+.docs-ig-next-link-item:hover .docs-ig-next-link-arrow {
+  transform: translateX(4px);
+}
+
+.docs-ig-footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-top: 64px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+.docs-ig-last-updated {
+  color: #52525b;
+  font-size: 0.82rem;
+  margin-bottom: 48px;
+}
+
+/* Raw Markdown View */
+.docs-ig-markdown-view {
+  background-color: #191919;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.docs-ig-markdown-view pre {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e4e4e7;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+/* Right Sidebar Styling */
+.docs-ig-right-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 32px;
+  height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .docs-ig-layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .docs-ig-right-sidebar {
+    display: none;
+  }
+}
+
+.docs-ig-rt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.docs-ig-rt-list-icon {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+}
+
+.docs-ig-rt-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docs-ig-rt-link {
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  transition: color 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  text-align: left;
+}
+
+.docs-ig-rt-link:hover {
+  color: #ffffff;
+}
+
+.docs-ig-rt-link.active {
+  color: #a1a1aa;
+}
+
+.docs-ig-rt-subitem {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.docs-ig-rt-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 8px 0;
+}
+
+.docs-ig-rt-footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docs-ig-rt-action-btn {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.15s;
+  text-align: left;
+}
+
+.docs-ig-rt-action-btn:hover {
+  color: #ffffff;
+}
+
+.docs-ig-rt-action-icon {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+}
+
+.docs-ig-rt-action-btn:hover .docs-ig-rt-action-icon {
+  color: #ffffff;
+}

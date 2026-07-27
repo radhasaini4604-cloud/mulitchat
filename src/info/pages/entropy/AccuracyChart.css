@@ -1,0 +1,38 @@
+/* Segmented Toggle Tabs for accuracy benchmark chart */
+.benchmark-tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.benchmark-tab-btn {
+  background: #f5f5f7;
+  border: 1px solid #e5e5e7;
+  color: #86868b;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.benchmark-tab-btn:hover {
+  background: #e8e8ed;
+  color: #1d1d1f;
+}
+
+.benchmark-tab-btn.active {
+  background: #1d1d1f;
+  border-color: #1d1d1f;
+  color: #ffffff;
+}
+
+/* Reduced size graph container */
+.accuracy-chart-block {
+  max-width: 480px;
+  margin: 0 auto;
+}

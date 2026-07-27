@@ -1,0 +1,202 @@
+/* Library Component Shared Styles & CSS Variables */
+
+.library-container {
+  /* Default Light Mode design system variables */
+  --lib-text: #09090b;
+  --lib-bg: #ffffff;
+  --lib-border: rgba(9, 9, 11, 0.1);
+  --lib-border-soft: rgba(9, 9, 11, 0.06);
+  --lib-text-muted: rgba(9, 9, 11, 0.5);
+  --lib-text-muted-more: rgba(9, 9, 11, 0.35);
+  --lib-input-bg: #f4f4f5;
+  --lib-card-bg: #f9f9fb;
+  --lib-card-bg-hover: #f4f4f5;
+  --lib-card-preview-bg: #f1f1f3;
+  --lib-btn-hover: rgba(9, 9, 11, 0.05);
+  --lib-btn-active-bg: #09090b;
+  --lib-btn-active-text: #ffffff;
+  --lib-row-hover-bg: rgba(0, 0, 0, 0.06);
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--lib-bg);
+  color: var(--lib-text);
+  padding: 30px 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+}
+
+/* Inherited variables for dark-mode */
+.dark-mode .library-container,
+.library-container.dark-mode {
+  --lib-text: #e4e4e7;
+  --lib-bg: #0b0b0c;
+  --lib-border: rgba(228, 228, 231, 0.15);
+  --lib-border-soft: rgba(228, 228, 231, 0.08);
+  --lib-text-muted: rgba(228, 228, 231, 0.5);
+  --lib-text-muted-more: rgba(228, 228, 231, 0.35);
+  --lib-input-bg: #212121;
+  --lib-card-bg: #121214;
+  --lib-card-bg-hover: #18181b;
+  --lib-card-preview-bg: #18181b;
+  --lib-btn-hover: rgba(255, 255, 255, 0.08);
+  --lib-btn-active-bg: #ffffff;
+  --lib-btn-active-text: #0b0b0c;
+  --lib-row-hover-bg: #1a1a1a;
+}
+
+.lib-title-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.lib-main-title {
+  font-family: Sebenta, "Sebenta Fallback: Georgia", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: var(--lib-text);
+  text-align: center;
+}
+
+/* Spinner / Loading styling */
+.lib-status-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  color: var(--lib-text-muted);
+}
+
+.lib-status-area.empty {
+  color: var(--lib-text-muted-more);
+}
+
+.lib-status-area.empty h3 {
+  margin: 0;
+  color: var(--lib-text);
+}
+
+.lib-empty-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.lib-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--lib-border-soft);
+  border-top-color: var(--lib-text);
+  border-radius: 50%;
+  animation: libSpin 0.8s linear infinite;
+}
+
+@keyframes libSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Rename modal styling */
+.lib-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lib-modal-card {
+  background-color: var(--lib-bg);
+  border: 1px solid var(--lib-border);
+  border-radius: 20px;
+  padding: 24px;
+  width: 340px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: libModalOpen 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes libModalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lib-modal-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--lib-text);
+}
+
+.lib-modal-input {
+  width: 100%;
+  height: 38px;
+  background-color: var(--lib-input-bg);
+  border: 1px solid var(--lib-border);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--lib-text);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.lib-modal-input:focus {
+  border-color: var(--lib-text);
+}
+
+.lib-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.lib-modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.lib-modal-cancel {
+  background: none;
+  color: var(--lib-text-muted);
+}
+
+.lib-modal-cancel:hover {
+  background-color: var(--lib-btn-hover);
+}
+
+.lib-modal-save {
+  background-color: var(--lib-btn-active-bg);
+  color: var(--lib-btn-active-text);
+}
+
+.lib-modal-save:hover {
+  opacity: 0.9;
+}

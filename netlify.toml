@@ -1,0 +1,49 @@
+# Netlify Configuration File for Nothric
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# External API Proxies (Bypassing browser CORS in production)
+[[redirects]]
+  from = "/cloudflare-api/*"
+  to = "https://api.cloudflare.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/nvidia-api/*"
+  to = "https://ai.api.nvidia.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/nvidia-nim/*"
+  to = "https://integrate.api.nvidia.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/resend-api/*"
+  to = "https://api.resend.com/:splat"
+  status = 200
+  force = true
+
+# SPA Fallback Routing for React / Vite
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache Control for Static Production Assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

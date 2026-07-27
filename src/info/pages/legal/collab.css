@@ -1,0 +1,72 @@
+@import "../../components/layout.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Google Translate widget styling ── */
+
+/* Hide the top banner Google injects when translating */
+.goog-te-banner-frame,
+.skiptranslate > iframe {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Hide "Powered by Google Translate" attribution text */
+.goog-te-gadget > span {
+  display: none !important;
+}
+
+/* Style the select dropdown to match the site */
+.goog-te-gadget {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  line-height: 1 !important;
+}
+
+.goog-te-gadget select {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #444 !important;
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  padding: 5px 10px !important;
+  cursor: pointer !important;
+  outline: none !important;
+  appearance: auto !important;
+  height: 32px !important;
+}
+
+.goog-te-gadget select:hover {
+  border-color: #bbb !important;
+  background: #f7f7f7 !important;
+}
+
+/* Prevent font override on translated text */
+font {
+  vertical-align: inherit !important;
+}

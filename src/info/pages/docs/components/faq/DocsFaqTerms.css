@@ -1,0 +1,205 @@
+.docs-terms-layout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.docs-terms-main-content {
+  flex-grow: 1;
+  max-width: 800px;
+  text-align: left;
+}
+
+.docs-terms-category {
+  color: #71717a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-terms-main-content .docs-terms-title {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em !important;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.docs-terms-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.docs-terms-actions-link {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.docs-terms-actions-link:hover {
+  color: #ffffff;
+}
+
+.docs-terms-action-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.docs-terms-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 16px 0 32px 0;
+}
+
+/* Sections Styling */
+.docs-terms-section {
+  margin-bottom: 40px;
+}
+
+.docs-terms-section-heading {
+  font-family: "Source Serif 4", Georgia, ui-serif, serif !important;
+  font-size: 1.5rem;
+  font-weight: 450;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em !important;
+}
+
+.docs-terms-text {
+  color: #a1a1aa;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Related Documentation footer list */
+.docs-terms-related-section {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.docs-terms-related-title {
+  color: #71717a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-terms-related-link-item {
+  color: #ef4444; /* red accent */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.docs-terms-related-link-item:hover {
+  color: #f87171;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.docs-terms-related-dot {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.docs-terms-footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-top: 64px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+.docs-terms-last-updated {
+  color: #52525b;
+  font-size: 0.82rem;
+  margin-bottom: 48px;
+}
+
+/* Right Sidebar Styling */
+.docs-terms-right-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 32px;
+  height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .docs-terms-layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .docs-terms-right-sidebar {
+    display: none;
+  }
+}
+
+.docs-terms-rt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.docs-terms-rt-list-icon {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+}
+
+.docs-terms-rt-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docs-terms-rt-link {
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  transition: color 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  text-align: left;
+}
+
+.docs-terms-rt-link:hover {
+  color: #ffffff;
+}
+
+.docs-terms-rt-link.active {
+  color: #a1a1aa;
+}

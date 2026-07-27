@@ -1,0 +1,186 @@
+/* Section 3: Support Metrics Stats Layout */
+.support-stats-section {
+  width: 100%;
+  max-width: 1150px;
+  margin: 160px auto 120px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.stats-bg-glow {
+  position: absolute;
+  top: 50%;
+  width: 600px;
+  height: 900px;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(150px);
+}
+
+.stats-bg-glow.glow-left {
+  left: calc(-50vw + 50% - 250px);
+  transform: translateY(-50%);
+  background: 
+    radial-gradient(ellipse at 250px 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse at 250px 50%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0) 80%),
+    radial-gradient(circle at 180px 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 95%);
+}
+
+.stats-bg-glow.glow-right {
+  right: calc(-50vw + 50% - 250px);
+  transform: translateY(-50%);
+  background: 
+    radial-gradient(ellipse at calc(100% - 250px) 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse at calc(100% - 250px) 50%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0) 80%),
+    radial-gradient(circle at calc(100% - 180px) 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 95%);
+}
+
+.stats-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.stats-columns-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.stats-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stats-sub-h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+  font-family: inherit;
+}
+
+.stats-data-col {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.stats-data-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.stats-data-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  min-width: 110px;
+  flex-shrink: 0;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: baseline;
+}
+
+.stat-number-unit {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  margin-left: 4px;
+  -webkit-text-fill-color: #a1a1aa;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stat-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.stat-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .support-stats-section {
+    margin-top: 100px;
+    gap: 40px;
+  }
+  .stats-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .timeline-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .timeline-svg-connector-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .timeline-card-wrapper {
+    align-items: flex-start;
+  }
+  .timeline-day-node {
+    margin-bottom: 12px;
+  }
+  .stats-data-item {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .stat-number {
+    min-width: auto;
+  }
+}

@@ -1,0 +1,48 @@
+:root {
+  --sidebar-bg: #ffffff;
+  --sidebar-bg-secondary: #ffffff;
+  --sidebar-text: #0f172a;
+  --sidebar-text-hover: #0f172a;
+  --sidebar-hover-bg: rgba(0, 0, 0, 0.05);
+  --sidebar-border: rgba(0, 0, 0, 0.045);
+  --sidebar-active-text: #0f172a;
+  --sidebar-active-bg: rgba(0, 0, 0, 0.08);
+  --sidebar-icon-color: #0f172a;
+  --sidebar-icon-hover: #0f172a;
+  --sidebar-shadow: none;
+  --recent-chat-title: #0d0d0d;
+  --sidebar-text-main: #0d0d0d;
+  --user-card-hover-bg: rgba(0, 0, 0, 0.05);
+  --settings-btn-hover-bg: rgba(0, 0, 0, 0.08);
+  --dropdown-bg: #ffffff;
+  --dropdown-border: rgba(0, 0, 0, 0.1);
+  --dropdown-hover-bg: rgba(0, 0, 0, 0.05);
+  --dropdown-text-secondary: #64748b;
+  --danger-text: #dc2626;
+  --danger-bg-hover: rgba(220, 38, 38, 0.08);
+  --text-main: #0f172a;
+}
+
+.dark-mode {
+  --sidebar-bg: #09090b;
+  --sidebar-bg-secondary: #000000;
+  --sidebar-text: #ffffff;
+  --sidebar-text-main: #ffffff;
+  --sidebar-text-hover: #ffffff;
+  --sidebar-hover-bg: #1a1a1a;
+  --sidebar-active-bg: #1a1a1a;
+  --sidebar-active-text: #ffffff;
+  --sidebar-icon-color: #ffffff;
+  --sidebar-icon-hover: #ffffff;
+  --sidebar-shadow: none;
+  --recent-chat-title: #ffffff;
+  --user-card-hover-bg: #1a1a1a;
+  --settings-btn-hover-bg: #1a1a1a;
+  --dropdown-bg: #353535;
+  --dropdown-border: rgba(255, 255, 255, 0.08);
+  --dropdown-hover-bg: #27272a;
+  --dropdown-text-secondary: rgba(255, 255, 255, 0.45);
+  --danger-text: #f87171;
+  --danger-bg-hover: rgba(248, 113, 113, 0.12);
+  --text-main: #ffffff;
+}
