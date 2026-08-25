@@ -24,7 +24,7 @@ Output ONLY one of these words: 'code', 'reasoning', 'creative', or 'conversatio
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
+        model: 'qwen/qwen3.6-27b',
         messages: [{ role: 'user', content: classificationPrompt }],
         temperature: 0.1,
         max_tokens: 10

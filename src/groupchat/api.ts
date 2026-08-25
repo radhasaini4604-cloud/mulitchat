@@ -1,7 +1,7 @@
 import { generateUUID } from '../utils/uuid';
 
-const accountId = import.meta.env.VITE_CLOUDFLARE_ACCOUNT_ID || "a3fc173c2b06b226e3b3be38fe1c126b";
-const apiToken = import.meta.env.VITE_CLOUDFLARE_API_TOKEN || "cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1";
+const accountId = localStorage.getItem('api-key-cloudflare-account') || import.meta.env.VITE_CLOUDFLARE_ACCOUNT_ID || "a3fc173c2b06b226e3b3be38fe1c126b";
+const apiToken = localStorage.getItem('api-key-cloudflare-token') || import.meta.env.VITE_CLOUDFLARE_API_TOKEN || "cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1";
 const databaseId = "1d060dc4-ad4a-4b64-9e69-0504a998708b";
 
 const getEndpoint = () => {

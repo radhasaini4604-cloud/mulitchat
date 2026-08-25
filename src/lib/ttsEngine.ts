@@ -118,8 +118,8 @@ class TtsEngine {
   }
 
   private async fetchSentenceAudio(sentence: string): Promise<string | null> {
-    const accountId = import.meta.env.VITE_CLOUDFLARE_ACCOUNT_ID || "a3fc173c2b06b226e3b3be38fe1c126b";
-    const apiToken = import.meta.env.VITE_CLOUDFLARE_API_TOKEN || "cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1";
+    const accountId = localStorage.getItem('api-key-cloudflare-account') || import.meta.env.VITE_CLOUDFLARE_ACCOUNT_ID || "a3fc173c2b06b226e3b3be38fe1c126b";
+    const apiToken = localStorage.getItem('api-key-cloudflare-token') || import.meta.env.VITE_CLOUDFLARE_API_TOKEN || "cfat_YhefWQbjhjrbi1F0outvPLvyWgOtkeXVN0Ml1wMZ3fdcf2b1";
     const url = `/cloudflare-api/client/v4/accounts/${accountId}/ai/run/@cf/deepgram/aura-2-en`;
 
     try {

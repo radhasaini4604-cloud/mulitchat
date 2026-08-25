@@ -114,7 +114,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     checkSession();
 
-    let lastUserId: string | null = null;
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (active) {
         const currentUser = session?.user ?? null;
